@@ -45,6 +45,28 @@ function displayUserSubmission() {
 	window.alert(outputJSON);
 }
 
+function accountUpdateData() {
+
+	// JSON object containing the values the user submits to the create account form
+	const accountUpdateJSON = {
+		"firstName": fName.value, 
+		"lastName": lName.value, 
+		"email": email.value,
+		"password": pass1.value,
+		"passwordConfirm": pass2.value,
+	};
+
+	// Constant that is set to a formatted String of the JSON object's values
+	const outputJSON = userSubmissionJSON.firstName + "\n" 
+					 + userSubmissionJSON.lastName + "\n" 
+					 + userSubmissionJSON.email + "\n"
+					 + userSubmissionJSON.password + "\n"
+					 + userSubmissionJSON.passwordConfirm + "\n"
+
+	// Displays an alert box with the values the user submitted
+	window.alert(outputJSON);
+}
+
 
 // PREVIOUS ASSIGNMENT
 
