@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: accountinfo.css */
+/* Last Updated: 3/2/22 */
+/* Last Updated By: Josh Wagner */
+
+form{
+	width: 600px;
+	/*
+	padding: 30px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 25px;
+	*/
+}
+
+.form-group{
+	margin: auto;
+}
+
+label{
+	font-weight: bold;
+}
+
+#form-title{
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+small{
+	color: #4A0203;
+	position:relative;
+	right: 40px;
+}
+
+.fa-circle-check{
+	color:#2d9117;;
+	visibility: hidden;
+	position: relative;
+	bottom: 30px;
+}
+
+.fa-circle-xmark{
+	color:#ff0000;
+	visibility: hidden;
+	position: relative;
+	bottom: 30px;
+}
+
+.selected-field{
+	border-width: 5px;
+	border-color: lightblue;
+}
+
+.unselected-field{
+	border-width: 0px;
+}
+
+#row1{
+	height: 110px;
+}
+
+#fname-container{
+	float: left;
+}
+
+#fname{
+	width: 200px;
+}
+
+#fname-pass{
+	left: 170px;
+}
+
+#fname-fail{
+	left: 150px;
+}
+
+#lname-container{
+	padding-left: 250px;
+}
+
+#lname{
+	max-width: 200px;
+}
+
+#lname-pass{
+	left: 170px;
+}
+
+#lname-fail{
+	left: 150px;
+}
+
+#email-container{
+	height: 110px;
+}
+
+#email{
+	width: 300px;
+}
+
+#email-pass{
+	left: 270px;
+}
+
+#email-fail{
+	left: 250px;
+}
+
+#row3{
+	height: 100px;
+}
+
+#phone-container{
+	float: left;
+}
+
+#phone{
+	width: 150px;
+}
+
+#optional{
+	display: inline;
+	font-weight: normal;
+	font-size: 15px;
+}
+#phone-pass{
+	left: 125px;
+}
+
+#phone-fail{
+	left: 105px;
+}
+
+#age-container{
+	padding-left: 250px;
+}
+
+#age{
+	max-width: 100px;
+}
+
+#age-pass{
+	left: 45px;
+}
+
+#age-fail{
+	left: 25px;
+}
+
+#street-address-container{
+	height: 110px;
+}
+
+#street-address{
+	width: 400px;
+}
+
+#street-pass{
+	left: 370px;
+}
+
+#street-fail{
+	left: 350px;
+}
+
+#row5{
+	height: 110px;
+	padding-bottom: 20px;
+}
+
+#city-container{
+	float: left;
+}
+
+#city{
+	width: 150px;
+}
+
+#city-pass{
+	left: 120px;
+}
+
+#city-fail{
+	left: 100px;
+}
+
+#state-container{
+	padding-left: 20px;
+	float: left;
+}
+
+#state{
+	width: 150px;
+}
+
+#state-pass{
+	left: 110px;
+}
+
+#state-fail{
+	left: 90px;
+}
+
+#zip-container{
+	float: left;
+	padding-left: 20px;
+}
+
+#zip{
+	width: 90px;
+}
+
+#zip-pass{
+	left: 65px;
+}
+
+#zip-fail{
+	left: 45px;
+}
+
+#form-buttons{
+	display: block;
+	padding-top: 10px;
+}
+
+#form-result{
+	vertical-align: bottom;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-left: 20px;
+	display: inline;
+}

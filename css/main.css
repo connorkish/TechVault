@@ -48,7 +48,7 @@ header a{
 }
 
 header a:hover{
-	color: greenyellow; 
+	color: lightblue; 
 	text-decoration: underline;
 }
 
@@ -98,7 +98,7 @@ nav a{
 
 nav a:hover{
 	background-color: #4A0203;
-	color: white;
+	color: lightblue;
 }
 
 
@@ -108,7 +108,7 @@ nav a:hover{
 	display: flex;
 	flex-direction: column;
 	min-height: 80vh;
-	padding-top: 60px;
+
 	padding-bottom: 50px;
 	margin: auto;
 	width: 60%;
@@ -162,7 +162,7 @@ footer li{
 }
 
 #footer-links a:hover{
-	color: greenyellow;
+	color: lightblue;
 	text-decoration: underline;
 }
 
