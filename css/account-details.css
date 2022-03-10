@@ -3,12 +3,37 @@
 /* CSS Document */
 /* Project: Tech Vault */
 /* Team Members: Josh Wagner, Connor Kish, Nick Trout */
-/* File: accountinfo.css */
-/* Last Updated: 3/2/22 */
+/* File: account-details.css */
+/* Last Updated: 3/9/22 */
 /* Last Updated By: Josh Wagner */
+
+#content{
+	padding-top: 20px;
+	margin: auto;
+}
+
+#details{
+	padding-left: 50px;
+}
+
+#details h2, p{ 
+	display: inline;
+	
+}
+
+#details h2 { 
+	font-size: 20px;
+	font-weight: bold; 
+	line-height: 2;
+}
+
+#edit-button{
+	margin-top: 30px;
+}
 
 form{
 	width: 600px;
+
 	/*
 	padding: 30px;
 	background-color: rgba(0,0,0,0.2);

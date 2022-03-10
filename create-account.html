@@ -1,32 +1,46 @@
 <!doctype html>
+
+<!-- Project: Tech Vault -->
+<!-- Team Members: Josh Wagner, Connor Kish, Nick Trout -->
+<!-- Page: Home Page -->
+<!-- File: account.html -->
+<!-- Last Updated: 2/27/22 -->
+<!-- Last Updated By: Josh Wagner -->
+
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Account - Tech Vault</title>
+		<!-- Bootstrap CSS -->
 		<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+		<!-- Custom CSS -->
 		<link href="css/main.css" rel="stylesheet" type="text/css">
-		<link href="accountinfo.css" rel="stylesheet" type="text/css">
+		<link href="css/form.css" rel="stylesheet" type="text/css">
+		<link href="css/create-account.css" rel="stylesheet" type="text/css">
+		<!-- Icon JS -->
 		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
-		<title>Account Info</title>
 	</head>
+
 	<body>
+		
 		<header>
 			<div id="header-top">
 				<div id="logo-container">
 					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
 				</div>
 				<div id="header-right">
-					<a href="account.html" id="account">Hello John</a>
+					<a href="account-details.html" id="account">Hello John</a>
 					<a href="#"><img id="cart-icon" src="images/cart.png" alt="Shopping Cart Icon">Cart</a>
 					<div id="search-container">
 						<input type="text" id="search" value="search">
 				  </div>
 			  </div>
 			</div>
-		</header>		
-		<nav>
+	</header>
+		
+	<nav>
 			<ul>
 				<li><a href="#">Page 1</a></li>
 				<li><a href="#">Page 2</a></li>
@@ -35,9 +49,10 @@
 				<li><a href="#">Page 5</a></li>
 			</ul>
 		</nav>
+		
 		<div id="content">
 			<form class="form-group col-md-0 offset-lg-0 was-valid" id="account-form" onSubmit="return false">
-			  	<h1 id="from-title">Account Info</h1>
+			  	<h1 id="from-title">Create Account</h1>
 				<div class="form-group offset-md-0 offset-sm-0 offset-xl-0">
 					<label for="fname">First Name</label>
 					<input type="text" class="form-control" id="fname" placeholder="John" onfocus="selectField(0)" onblur="unselectField(0)">
@@ -59,27 +74,6 @@
 					<i class="fa-solid fa-circle-xmark"></i>
 					<small class="form-feedback" id="email-feedback"></small>
 			  	</div>
-				<div class="form-group offset-md-0 offset-xl-0">
-			    	<label for="phonenumber">Phone Number (Optional)</label>
-			    	<input type="tel" class="form-control" id="phonenumber" placeholder="(800)-555-5555" onfocus="selectField(2)" onblur="unselectField(2)">
-					<i class="fa-solid fa-circle-check"></i>
-					<i class="fa-solid fa-circle-xmark"></i>
-					<small class="form-feedback" id="phonenumber-feedback"></small>
-			  	</div>
-				<div class="form-group offset-md-0 offset-xl-0">
-			    	<label for="age">Age</label>
-			    	<input type="number" class="form-control" id="age" placeholder="99" onfocus="selectField(2)" onblur="unselectField(2)">
-					<i class="fa-solid fa-circle-check"></i>
-					<i class="fa-solid fa-circle-xmark"></i>
-					<small class="form-feedback" id="age-feedback"></small>
-			  	</div>
-				<div class="form-group offset-md-0 offset-xl-0">
-			    	<label for="address">Address</label>
-			    	<input type="text" class="form-control" id="address" placeholder="10 Cherry Lane New York, New York" onfocus="selectField(2)" onblur="unselectField(2)">
-					<i class="fa-solid fa-circle-check"></i>
-					<i class="fa-solid fa-circle-xmark"></i>
-					<small class="form-feedback" id="address-feedback"></small>
-			  	</div>
 			  	<div class="form-group offset-md-0">
 			    	<label for="password1">Password</label>
 			    	<p id="password-rules">Password must be between 8-15 characters and contain at least one uppercase, lowercase, number, and symbol.</p>
@@ -97,10 +91,12 @@
 		    	</div>
 		    	<div class="offset-md-0 offset-lg-0" id="form-buttons">
 					<h2 id="form-result"></h2>
-					<button type="submit" class="btn btn-primary" id="submit-button" onClick="checkInputs()" >Update Info</button>
+					<button type="submit" class="btn btn-primary" id="submit-button" onClick="checkInputs()" >Create Account</button>
+            		<button type="reset" class="btn btn-primary" id="reset-button" onclick="resetFields()">Reset</button>
           		</div>
 			</form>
         </div>
+		
 		<footer>
 			<div id="footer-links">
 				<ul>
@@ -119,15 +115,17 @@
 					<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
 					<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
 					<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
-		  	    </ul>
-	  	    </div>
+		  	  </ul>
+	  	  </div>
 		</footer>
+		
 		<!-- Validation JavaScript -->
-		<script src="js/account-validation.js"></script>
+		<script src="js/create-account.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 		<script src="js/jquery-3.4.1.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap-4.4.1.js"></script>
+		
 	</body>
 </html>
