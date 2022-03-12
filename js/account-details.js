@@ -2,7 +2,7 @@
 // Project: Tech Vault 
 // Team Members: Josh Wagner, Connor Kish, Nick Trout
 // File: account-details.js
-// Last Updated: 3/9/22
+// Last Updated: 3/11/22
 // Last Updated By: Josh Wagner
 
 
@@ -62,12 +62,12 @@ function displayAccountDetails() {
 	// Clears the HTML from the form
 	accoundDetailForm.innerHTML = "";
 
-	// Displays the Account Details without the , in Adress if there is no city saved
+	// Displays the Account Details without the , in Address if there is no city saved
 	if(accountDetails.city == "") {
 			accountDetailDisplay.innerHTML = "<h2>Name: </h2><p>" + accountDetails.firstName + " " + accountDetails.lastName + "</p></br>"
 		+ "<h2>Email: </h2><p>" + accountDetails.email + "</p></br>"
 		+ "<h2>Phone: </h2><p>" + accountDetails.phone + "</p></br>"
-		+ "<h2>Adress: </h2><p>" + accountDetails.address + " " + accountDetails.city + " " + accountDetails.state  + " " + accountDetails.zip + "</p></br>"
+		+ "<h2>Address: </h2><p>" + accountDetails.address + " " + accountDetails.city + " " + accountDetails.state  + " " + accountDetails.zip + "</p></br>"
 		+ "<h2>Age: </h2><p>" + accountDetails.age + "</p></br>"
 		+ '<button class="btn btn-primary" id="edit-button" onClick="displayAccountDetailsForm()" >Edit Details</button>';
 	} 
@@ -76,7 +76,7 @@ function displayAccountDetails() {
 			accountDetailDisplay.innerHTML = "<h2>Name: </h2><p>" + accountDetails.firstName + " " + accountDetails.lastName + "</p></br>"
 		+ "<h2>Email: </h2><p>" + accountDetails.email + "</p></br>"
 		+ "<h2>Phone: </h2><p>" + accountDetails.phone + "</p></br>"
-		+ "<h2>Adress: </h2><p>" + accountDetails.address + " " + accountDetails.city + ", " + accountDetails.state  + " " + accountDetails.zip + "</p></br>"
+		+ "<h2>Address: </h2><p>" + accountDetails.address + " " + accountDetails.city + ", " + accountDetails.state  + " " + accountDetails.zip + "</p></br>"
 		+ "<h2>Age: </h2><p>" + accountDetails.age + "</p></br>"
 		+ '<button class="btn btn-primary" id="edit-button" onClick="displayAccountDetailsForm()" >Edit Details</button>';
 	}
@@ -138,7 +138,7 @@ function displayAccountDetailsForm() {
 			+	'<div id="row5">'
 			+		'<div class="form-group offset-md-0 offset-xl-0" id="city-container">'
 			+			'<label for="city">City</label>'
-			+			'<input type="text" class="form-control" id="city" placeholder="York" onfocus="selectField(6)" onblur="unselectField(6)">'
+			+			'<input type="text" class="form-control" id="city" placeholder="City" onfocus="selectField(6)" onblur="unselectField(6)">'
 			+			'<i class="fa-solid fa-circle-check" id="city-pass"></i>'
 			+			'<i class="fa-solid fa-circle-xmark" id="city-fail"></i>'
 			+			'<small class="form-feedback" id="city-feedback"></small>'
@@ -211,7 +211,8 @@ function displayAccountDetailsForm() {
 			+		'</div>'
 			+	  '</div>'
 		    +	  '<div class="offset-md-0 offset-lg-0" id="form-buttons">'
-			+	 	'<button type="submit" class="btn btn-primary" id="submit-button" onClick="checkInputs()" >Update Info</button>'
+			+	 	'<button type="submit" class="btn btn-primary" id="update-info-button" onClick="checkInputs()">Update Info</button>'
+			+		'<button class="btn btn-primary" id="cancel-button" onClick="displayAccountDetails()">Cancel</button>'
 			+	 	'<h2 id="form-result"></h2>'
           	+	  '</div>';
     
@@ -468,7 +469,7 @@ function checkStreet(validIndex) {
 
 	else {
 		displayFieldError(street,5); 					// Changes CSS to indicate field is invalid
-		streetFeedback.innerHTML = "Not A Valid Adress"; 	// Displays feedback
+		streetFeedback.innerHTML = "Not A Valid Address"; 	// Displays feedback
 		validField[validIndex] = false; 				// Records the field is invalid
 	}
 }
