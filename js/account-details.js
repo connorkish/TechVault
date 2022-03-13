@@ -560,8 +560,9 @@ function validateSubmission() {
 
 	// Tests if all fields were found to be valid
 	if (validSubmission) {
-		updateAccountDetails();
-		displayAccountDetails();
+		updateAccountDetails();		// Updates the JSON
+		displayAccountDetails(); 	// Removes the form and displays the Account Details
+		document.getElementById("account").innerHTML = "Hello " + accountDetails.firstName;
 	} 
 	else {
 		result.innerHTML = "ERROR!"		// Displays that the submission has errors
