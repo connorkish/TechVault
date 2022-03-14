@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: product-management.css */
+/* Last Updated: 3/13/22 */
+/* Last Updated By: Connor Kish */
+
+#action-select-container {
+	text-align: center;
+	margin-top: 5%;
+}
+
+#new-product {
+	float: left;
+	margin-left: 25%;
+}
+
+#search-product {
+	float: right;
+	margin-right: 25%;
+}
+
+#product-search-container {
+	text-align: center;
+}
+
+#product-search {
+	margin-top: 5%;
+	width: 75%;
+	border-radius: 10px;
+}
+
+#product-table {
+	margin-top: 5%;
+	width: 100%;
+}
+
+table {
+	border: 2px solid black;
+	border-collapse: collapse;
+	background-color: white;
+}
+
+th {
+	border: 2px solid black;
+	border-collapse: collapse;
+	padding: 1%;
+	text-align: center;
+}
+
+td {
+	border: 2px solid black;
+	border-collapse: collapse;
+	padding: 1%;
+	text-align: left;
+}
+
+#product-edit-container {
+	text-align: center;
+	margin-top: 5%;
+}
