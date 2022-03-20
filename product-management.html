@@ -14,7 +14,7 @@
 		<!-- Icon JS -->
 		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
 	</head>
-	<body onload="alert('test');">
+	<body onload="disableForm()">
 		<header>
 			<div id="header-top">
 				<div id="logo-container">
@@ -42,31 +42,48 @@
 		<div id="content">
 			<div id="content-container">			
 				<div id="action-select-container">
-					<button type="submit" class="btn btn-primary" id="new-product" onClick="editProductData()">New Product</button>
-					<button type="submit" class="btn btn-primary" id="search-product" onClick="editProductData()">Search Product</button>
+					<button type="submit" class="btn btn-primary" id="new-product" onClick="newProductAction()">New Product</button>
+					<button type="submit" class="btn btn-primary" id="edit-product" onClick="updateProductAction()">Search Product</button>
+					<button type="submit" class="btn btn-primary" id="delete-product" onClick="deleteProductAction()">Delete Product</button>
 			    </div>
-				<div id="product-search-container">
-						<input type="text" id="product-search" value="Search Product by ID">
-			    </div>
-				<div id="product-table-container">
-					<table id="product-table">
-						<tr>
-						  <th>Product ID</th>
-						  <th>Description</th>
-						  <th>Category</th>
-						  <th>Quantity</th>
-						  <th>Price</th>
-						  <th>Weight</th>
-						</tr>
-						<tr>
-						  <td contenteditable="false"></td>
-						  <td contenteditable="false"></td>
-						  <td contenteditable="false"></td>
-						  <td contenteditable="false"></td>
-						  <td contenteditable="false"></td>
-						  <td contenteditable="false"></td>	
-						</tr>
-					</table>
+				<div id="product-details-container">
+					<form id="product-details-form">
+						<div>
+							<label for="ProductID">Product ID</label>
+							<input type="text" class="form-control" id="ProductID" placeholder="Product ID">
+						</div>
+						<div>
+							<label for="Manufacturer">Manufacturer</label>
+							<input type="text" class="form-control" id="Manufacturer" placeholder="Manufacturer">
+						</div>
+						<div>
+							<label for="ProductName">Product Name</label>
+							<input type="text" class="form-control" id="ProductName" placeholder="Product Name">
+						</div>
+						<div>
+							<label for="ProductDescription">Product Description</label>
+							<input type="text" class="form-control" id="ProductDescription" placeholder="Description">
+						</div>
+						<div>
+							<label for="Category">Category</label>
+							<input type="text" class="form-control" id="Category" placeholder="Category">
+						</div>
+						<div>
+							<label for="Quantity">Quantity</label>
+							<input type="text" class="form-control" id="Quantity" placeholder="Quantity">
+						</div>
+						<div>	
+							<label for="Price">Price</label>
+							<input type="text" class="form-control" id="Price" placeholder="Price">
+						</div>
+						<div>
+							<label for="Weight">Weight</label>
+							<input type="text" class="form-control" id="Weight" placeholder="Weight">
+						</div>
+						<div id="form-actions">
+							
+						</div>
+					</form>
 			    </div>
 			</div>
 	    </div>

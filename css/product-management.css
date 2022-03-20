@@ -13,51 +13,118 @@
 }
 
 #new-product {
-	float: left;
-	margin-left: 25%;
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
 }
 
-#search-product {
-	float: right;
-	margin-right: 25%;
+#edit-product {
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
 }
 
-#product-search-container {
-	text-align: center;
+#delete-product {
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
 }
 
-#product-search {
-	margin-top: 5%;
-	width: 75%;
-	border-radius: 10px;
-}
-
-#product-table {
+#product-details-container {
 	margin-top: 5%;
 	width: 100%;
+	
 }
 
-table {
-	border: 2px solid black;
-	border-collapse: collapse;
-	background-color: white;
-}
-
-th {
-	border: 2px solid black;
-	border-collapse: collapse;
-	padding: 1%;
+#product-details-form{
 	text-align: center;
 }
 
-td {
-	border: 2px solid black;
-	border-collapse: collapse;
-	padding: 1%;
-	text-align: left;
+labels {
+	display: inline-block;
+	text-align: right;
+	margin-left: 5%;
 }
 
-#product-edit-container {
-	text-align: center;
+#ProductID {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#Manufacturer {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#ProductName {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#ProductDescription {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#Category {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#Quantity {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#Price {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#Weight {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#form-actions {
 	margin-top: 5%;
+}
+
+#save {
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
+}
+
+#update {
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
+}
+
+#delete {
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
+}
+
+#cancel {
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 20%;
 }
