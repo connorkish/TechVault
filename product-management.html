@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +14,10 @@
 		<link href="css/product-management.css" rel="stylesheet" type="text/css">
 		<!-- Icon JS -->
 		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	</head>
-	<body onload="disableForm()">
+
+	<body>
 		<header>
 			<div id="header-top">
 				<div id="logo-container">
@@ -28,7 +31,8 @@
 			    	</div>
 				</div>
 			</div>
-		</header>		
+		</header>	
+
 		<nav>
 			<ul>
 				<li><a href="#">Components</a></li>
@@ -39,54 +43,55 @@
 			</ul>
 		</nav>
 		
-		<div id="content">
-			<div id="content-container">			
-				<div id="action-select-container">
-					<button type="submit" class="btn btn-primary" id="new-product" onClick="newProductAction()">New Product</button>
-					<button type="submit" class="btn btn-primary" id="edit-product" onClick="updateProductAction()">Search Product</button>
-					<button type="submit" class="btn btn-primary" id="delete-product" onClick="deleteProductAction()">Delete Product</button>
-			    </div>
-				<div id="product-details-container">
-					<form id="product-details-form">
-						<div>
+		<div id="content">		
+			<div id="action-select-container">
+				<button class="btn btn-primary" id="new-product">New Product</button>
+				<button class="btn btn-primary" id="edit-product">Update Product</button>
+				<button class="btn btn-primary" id="delete-product">Delete Product</button>
+			</div>
+			<div id="product-details-container">
+				<form id="product-details-form">
+					<div class="grid-container">
+						<div class="grid-item">
 							<label for="ProductID">Product ID</label>
 							<input type="text" class="form-control" id="ProductID" placeholder="Product ID">
 						</div>
-						<div>
+						<div class="grid-item">
 							<label for="Manufacturer">Manufacturer</label>
 							<input type="text" class="form-control" id="Manufacturer" placeholder="Manufacturer">
 						</div>
-						<div>
+						<div class="grid-item">
 							<label for="ProductName">Product Name</label>
 							<input type="text" class="form-control" id="ProductName" placeholder="Product Name">
 						</div>
-						<div>
-							<label for="ProductDescription">Product Description</label>
-							<input type="text" class="form-control" id="ProductDescription" placeholder="Description">
-						</div>
-						<div>
+						
+						<div class="grid-item">
 							<label for="Category">Category</label>
 							<input type="text" class="form-control" id="Category" placeholder="Category">
 						</div>
-						<div>
+						<div class="grid-item">
 							<label for="Quantity">Quantity</label>
 							<input type="text" class="form-control" id="Quantity" placeholder="Quantity">
 						</div>
-						<div>	
+						<div class="grid-item">	
 							<label for="Price">Price</label>
 							<input type="text" class="form-control" id="Price" placeholder="Price">
 						</div>
-						<div>
+						<div class="grid-item">
 							<label for="Weight">Weight</label>
 							<input type="text" class="form-control" id="Weight" placeholder="Weight">
 						</div>
-						<div id="form-actions">
-							
-						</div>
-					</form>
-			    </div>
-			</div>
-	    </div>
+					</div>
+					<div class="description-container">
+						<label for="ProductDescription">Product Description</label>
+						<textarea class="form-control" id="ProductDescription" placeholder="Description"></textarea>
+					</div class="grid-item">
+					<div id="form-actions"></div>
+				</form>
+		    </div>
+		    <div id="search-results-area"></div>
+		</div>
+ 
 		
 		<footer>
 			<div id="footer-links">
@@ -109,6 +114,7 @@
 			    </ul>
 		  	</div>
 		</footer>
+
 		<script src="js/product-management.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 		<script src="js/jquery-3.4.1.min.js"></script>
