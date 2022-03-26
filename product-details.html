@@ -1,0 +1,118 @@
+<!-- Project: Tech Vault -->
+<!-- Team Members: Josh Wagner, Connor Kish, Nick Trout -->
+<!-- Page: Home Page -->
+<!-- File: index.html -->
+<!-- Last Updated: 3/23/22 -->
+<!-- Last Updated By: Nick Trout -->
+
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Product Details</title>
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+		<!-- Custom CSS -->
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<!-- Custom CSS -->
+		<link href="css/product-details.css" rel="stylesheet" type="text/css">
+		<!-- Icon JS -->
+		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+		
+		<header>
+			<div id="header-top">
+				<div id="logo-container">
+					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
+				</div>
+				<div id="header-right">
+					<a href="account-details.html" id="account">Hello John</a>
+					<a href="#"><img id="cart-icon" src="images/cart.png" alt="Shopping Cart Icon">Cart</a>
+					<div id="search-container">
+						<input type="text" id="search" value="search">
+				  </div>
+			  </div>
+			</div>
+	</header>
+		
+	<nav>
+			<ul>
+				<li><a href="#">CPUs</a></li>
+				<li><a href="#">Motherboards</a></li>
+				<li><a href="#">Memory</a></li>
+				<li><a href="#">Storage</a></li>
+				<li><a href="#">Power Supplies</a></li>
+				<li><a href="#">Cases</a></li>
+			</ul>
+		</nav>
+		
+	<div id="content">
+		<div id="search-results-area">
+		<div class="search-result" onclick="loadProduct(100560)"><div class="product-image"><img src="images/products/cpu.png"></div>
+			<p class="result-name">NAME: AMD Ryzen 5 5600X</p>
+			<p>MANF: AMD</p>
+			<p>Price: $230</p>
+			</div>
+		<div class="search-result" onclick="loadProduct(100590)"><div class="product-image"><img src="images/products/cpu.png"></div>
+			<p class="result-name">NAME: AMD Ryzen 9 5950X</p>
+			<p>MANF: AMD</p>
+			<p>Price: $520</p>
+			</div>
+		<div class="search-result" onclick="loadProduct(300100)"><div class="product-image"><img src="images/products/memory.png"></div>
+			<p class="result-name">NAME: Corsair Vengeance RGB Pro 32GB DDR4 SDRAM</p>
+			<p>MANF: Corsair</p>
+			<p>Price: $130</p>
+			</div>
+		<div class="search-result" onclick="loadProduct(400100)"><div class="product-image"><img src="images/products/memory.png"></div>
+			<p class="result-name">NAME: Samsung 870 EVO Series 2.5" 500GB SATA III SSD</p>
+			<p>MANF: Samsung</p>
+			<p>Price: $65</p>
+			</div>
+		<div class="search-result" onclick="loadProduct(500100)"><div class="product-image"><img src="images/products/power.png"></div>
+			<p class="result-name">NAME: Rosewill 1050W ATX Full Modular Power Supply</p>
+			<p>MANF: Rosewill</p>
+			<p>Price: $125</p>
+			</div>
+		<div class="search-result" onclick="loadProduct(600100)"><div class="product-image"><img src="images/products/case.png"></div>
+			<p class="result-name">NAME: Corsair 4000D Mid-Tower ATX Case</p>
+			<p>MANF: Corsair</p>
+			<p>Price: $100</p>
+			</div>	
+		</div>
+	</div>
+		
+		<footer>
+			<div id="footer-links">
+				<ul>
+					<li><a href="#">CPUs</a></li>
+					<li><a href="#">Motherboards</a></li>
+					<li><a href="#">Memory</a></li>
+					<li><a href="#">Storage</a></li>
+					<li><a href="#">Power Supplies</a></li>
+					<li><a href="#">Cases</a></li>
+				</ul>
+			</div>
+			<div id="social-media">
+				<ul>
+					<li><a href="#" title="LinkedIn"><img src="images/social-media/linked.png" alt="Tech Vault LinkedIn Page"></a></li>
+					<li><a href="#" title="Facebook"><img src="images/social-media/facebook.png" alt="Tech Vault Facebook Page"></a></li>
+					<li><a href="#" title="Instagram"><img src="images/social-media/insta.png" alt="Tech Vault Instagram Page"></a></li>
+					<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
+					<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
+					<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
+		  	  </ul>
+	  	  </div>
+		</footer>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap-4.4.1.js"></script>
+		
+	</body>
+</html>

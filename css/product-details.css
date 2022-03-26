@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: product-details.css */
+/* Last Updated: 3/26/22 */
+/* Last Updated By: Nick Trout */
+
+#search-results-area{
+	display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 30px;
+}
+
+.search-result {
+	display: inline-block;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px;
+  background: lightsteelblue;
+  box-shadow:  5px 10px 18px #888888;
+  max-width: 250px;
+}
+
+.result-name{
+	text-align: center;
+	padding-top: 10px;
+	font-weight: bold;
+}
+.product-image{
+	padding: 10px;
+	text-align: center;
+}
+
+.product-image img{
+	width: 80%;
+	height: 80%;
+	box-shadow:  5px 10px 18px #888888;
+}
+.product-details{
+	display: grid;
+  grid-template-columns: auto auto;
+  padding-top: 5px;  
+}
