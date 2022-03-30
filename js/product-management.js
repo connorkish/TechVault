@@ -2,34 +2,12 @@
 // Project: Tech Vault 
 // Team Members: Josh Wagner, Connor Kish, Nick Trout
 // File: product-management.js
-// Last Updated: 3/23/22
+// Last Updated: 3/29/22
 // Last Updated By: Josh Wagner
 
 
-const 
-	// Form
-	form = $("#product-details-form"),
-
-	// Main action buttons
-	newProduct = $("#new-product"),
-  	editProduct = $("#edit-product"),
-  	deleteProduct = $("#delete-product"),
-
-  	// Form Fields
-  	id = $("#ProductID"),
-	manf = $("#Manufacturer"),
-	name = $("#ProductName"),
-	desc = $("#ProductDescription"),
-    cat = $("#Category"),
-    qty = $("#Quantity"),
-    price = $("#Price"),
-    weight = $("#Weight"),
-
-	// The container for the form buttons
-  	formactions = $("#form-actions"),
-
-	// JSON Representing Store's Products 	
-	data = [
+// JSON Representing Store's Products 
+var data = [
 	    {
 	        "ProductName": "Intel Core i3-8350k",
 	        "ProductID": 100300,
@@ -360,11 +338,35 @@ const
 	        "Weight": 126.2,
 	        "Image": "images/products/case.png"
 	    }
-    ];
+    ];	
 
+// Constants
+const 
+	// Form containing input fields
+	form = $("#product-details-form"),
 
+	// Main action buttons
+	newProduct = $("#new-product"),
+  	editProduct = $("#edit-product"),
+  	deleteProduct = $("#delete-product"),
+
+  	// Input fields
+  	id = $("#ProductID"),
+	manf = $("#Manufacturer"),
+	name = $("#ProductName"),
+	desc = $("#ProductDescription"),
+    cat = $("#Category"),
+    qty = $("#Quantity"),
+    price = $("#Price"),
+    weight = $("#Weight"),
+
+	// The container for the buttons that appear under the form
+  	formactions = $("#form-actions");
+
+// Variables
 var 
-	// Searches placed in the the form fields
+
+	// Holds the values entered into an input field
 	idQuery,
 	manfQuery,
 	nameQuery,
@@ -397,87 +399,141 @@ var
 	// Stores a message describing a submission error
 	errorFeedback,
 
-	// Arrays
+	// Describes if the page is being used to delete a product
+	deleteOption,
+
+	// Array of input fields
 	fields = [id, manf, name, desc, cat, qty, price, weight],
+
+	// Array of quries
 	queries = [idQuery, manfQuery, nameQuery, descQuery, catQuery, qtyQuery, priceQuery, weightQuery],
+	
+	// Array of regular expressions
 	regExs = [idRegEx, manfRegEx, nameRegEx, descRegEx, catRegEx, qtyRegEx, priceRegEx, weightRegEx];
 
 
 
-// On Load Event to disable the form
+// OnLoad event to disable the form
 $(document).ready(disableForm());
 
-// On Click Events for the main action buttons
+
+// OnLoad event to clear input fields
+$(document).ready(manualClearFields);
+
+
+// OnClick events for the main action buttons
 $(document).ready(function(){
 	newProduct.click(newProductAction);
 	editProduct.click(updateProductAction);
 	deleteProduct.click(deleteProductAction);
 });
 
+
 // Hanldes when the New Product Button is pressed
 function newProductAction(){
-	newProduct.removeClass();
-	newProduct.addClass("btn active");
-	editProduct.removeClass();
-	editProduct.addClass("btn btn-primary");
-	deleteProduct.removeClass();
-	deleteProduct.addClass("btn btn-primary");
-	enableForm();
-	manualClearFields();
-	
-	formactions.html("");
-	formactions.html('<button class="btn btn-primary" id="save">Save</button>' 
-					+'<button type="reset" class="btn btn-primary" id="reset">Reset</button>'
-					+'<button class="btn btn-primary" id="cancel">Cancel</button>');
-	$("#save").click(validateNewProduct);
-	$("#cancel").click(cancelAction);
-	$("#reset").click(function(){$("#search-results-area").html("");});	
-	disableSearchFields();
+
+	// Formats the main buttons
+	newProduct.removeClass();					// Removes all classes from new product button
+	newProduct.addClass("btn active");			// Adds active classes to new product button
+	editProduct.removeClass();					// Removes all classes from update product button
+	editProduct.addClass("btn btn-primary");	// Adds default classes to update product button 
+	deleteProduct.removeClass();				// Removes all classes from delete product button
+	deleteProduct.addClass("btn btn-primary");	// Adds default classes to delete product button
+
+	// Formats the form
+	enableForm();								// Calls method to enable form
+	manualClearFields();						// Calls method to clear contents of input fields	
+	enhancedReset();							// Calls method to reset form search
+	disableSearchFields();						// Calls method to remove query searches from input fields
+	formactions.html("");						// Clears buttons that may be below the form
+
+	// Addds buttons below the form related to the new product option
+	formactions.html(							
+		'<button class="btn btn-primary" id="save">Save</button>' 					// Save Button	
+		+'<button type="reset" class="btn btn-primary" id="reset">Reset</button>'	// Reset Button
+		+'<button class="btn btn-primary" id="cancel">Cancel</button>'				// Cancel Button
+	);
+
+	// Adds OnClick events to new buttons
+	$("#save").click(saveNewProduct);		// Calls method to validate the entry of a new product
+	$("#cancel").click(cancelAction);		// Calls method to cancel the entry
+
+	deleteOption = false;					// Sets global variable to say the delete option is not being used
 }
+
 
 // Handles when the Update Product Button is pressed
 function updateProductAction() {
-	newProduct.removeClass();
-	newProduct.addClass("btn btn-primary");
-	editProduct.removeClass();
-	editProduct.addClass("btn active");
-	deleteProduct.removeClass();
-	deleteProduct.addClass("btn btn-primary");
-	enableForm();
-	manualClearFields();
-	formactions.html("");
-	formactions.html('<button type="submit" class="btn btn-primary" id="update">Update</button>'
-					+'<button type="reset" class="btn btn-primary" id="reset">Reset</button>'
-					+'<button type="submit" class="btn btn-primary" id="cancel">Cancel</button>');
-	$("#update").click(validateUpdate);
-	$("#cancel").click(cancelAction);
-	$("#reset").click(function(){updateProductAction});
-	enableSearchFields();
-	$("#search-results-area").html("");
+
+	// Formats the main buttons
+	newProduct.removeClass();					// Removes all classes from new product button
+	newProduct.addClass("btn btn-primary");		// Adds default classes to new product button
+	editProduct.removeClass();					// Removes all classes from update product button
+	editProduct.addClass("btn active");			// Adds active classes to update product button
+	deleteProduct.removeClass();				// Removes all classes from delete product button
+	deleteProduct.addClass("btn btn-primary");	// Adds default classes to delete product button
+
+
+	// Formats the form
+	enableForm();								// Calls method to enable form
+	manualClearFields();						// Calls method to clear contents of input fields
+	enableSearchFields();						// Calls method to add query searches to input fields
+	enhancedReset();							// Calls method to reset form search
+	formactions.html("");						// Clears buttons that may be below the form
+
+	// Addds buttons below the form related to the new product option
+	formactions.html(
+		'<button type="submit" class="btn btn-primary" id="update">Update</button>'	// Update Button
+		+'<button type="reset" class="btn btn-primary" id="reset">Reset</button>'	// Reset Button
+		+'<button type="submit" class="btn btn-primary" id="cancel">Cancel</button>'// Cancel Button
+	);
+
+	// Adds OnClick events to new buttons
+	$("#update").click(validateUpdate);			// Calls method to validate the entry of product update
+	$("#cancel").click(cancelAction);			// Calls method to cancel the entry
+	$("#reset").click(enhancedReset);			
+
+	$("#update").prop("disabled", true);		// Disables update button
+	deleteOption = false;						// Sets global variable to say the delete option is not being used
 }
+
 
 // Handles when the Delete Product Button is pressed
 function deleteProductAction() {
-	newProduct.removeClass();
-	newProduct.addClass("btn btn-primary");
-	editProduct.removeClass();
-	editProduct.addClass("btn btn-primary");
-	deleteProduct.removeClass();
-	deleteProduct.addClass("btn active");
-	enableForm();
-	manualClearFields();
-	formactions.html("");
-	formactions.html('<button class="btn btn-primary" id="delete">Delete</button>'
-					+'<button type="reset" class="btn btn-primary" id="reset">Reset</button>'
-					+'<button class="btn btn-primary" id="cancel">Cancel</button>');
-	$("#delete").click(deleteProduct);
-	$("#cancel").click(cancelAction);
-	$("#reset").click(function(){$("#search-results-area").html("");});
-	enableSearchFields();
 
+	// Formats the main buttons
+	newProduct.removeClass();					// Removes all classes from new product button
+	newProduct.addClass("btn btn-primary");		// Adds default classes to new product button
+	editProduct.removeClass();					// Removes all classes from update product button
+	editProduct.addClass("btn btn-primary");	// Adds default classes to update product button
+	deleteProduct.removeClass();				// Removes all classes from delete product button
+	deleteProduct.addClass("btn active");		// Adds active classes to delete product button
+
+	// Formats the form
+	enableForm();								// Calls method to enable form
+	manualClearFields();						// Calls method to clear contents of input fields
+	enableSearchFields();						// Calls method to add query searches to input fields
+	enhancedReset();							// Calls method to reset form search
+	formactions.html("");						// Clears buttons that may be below the form
+
+	// Addds buttons below the form related to the new product option
+	formactions.html(
+		'<button class="btn btn-primary" id="delete">Delete</button>'				// Delete Button
+		+'<button type="reset" class="btn btn-primary" id="reset">Reset</button>'	// Reset Button
+		+'<button class="btn btn-primary" id="cancel">Cancel</button>'				// Cancel Button
+	);
+
+	// Adds OnClick events to new buttons
+	$("#delete").click(removeProduct);			// Calls method to remove product
+	$("#cancel").click(cancelAction);			// Calls method to cancel the entry
+	$("#reset").click(enhancedReset);			// Calls method to reset form beyond normal
+
+	deleteOption = true;						// Sets global variable to say the delete option is being used
+	$("#delete").prop("disabled", true); 		// Disables delete buttond
 }
 
-// Manually clear fields
+
+// Manually clear fields and search results
 function manualClearFields(){
 	$("#search-results-area").html("");
 	id.val("");
@@ -489,6 +545,7 @@ function manualClearFields(){
     price.val("");
     weight.val("");
 }
+
 
 // Disables the form
 function disableForm() {
@@ -502,9 +559,9 @@ function disableForm() {
     weight.prop("disabled", true);
 }
 
+
 // Enables the form
 function enableForm() {
-	//$("#product-details-form").prop()
 	id.prop("disabled", false);
 	manf.prop("disabled", false);
 	name.prop("disabled", false);
@@ -515,81 +572,99 @@ function enableForm() {
     weight.prop("disabled", false);
 }
 
-/*
-// Handles when the update button is pressed under the update product option 
-function updateProduct() {
-	form.trigger("reset");
-}*/
 
-// Handles when the delete button is pressed under the delete product option
-function removeProduct() {
-	form.trigger("reset");
+// Handles additional actions when the reset button is pressed
+function enhancedReset(){
+
+	var i = 0;							// Local control variable
+	
+	$.each(regExs,function(i){			// Iterates through regExs to reset reqular expression search
+		regExs[i] = new RegExp("");		// Clears the regular expression
+		i++;							// Increments control variable
+	});
+
+	$("#search-results-area").html("");	// Clears search results below form
+
+	enableSearchFields();				// Enables serach for input fields
+	enableForm();						// Enables form
+
+	$("#update").prop("disabled", true);// Disables update button
+	$("#delete").prop("disabled", true);// Disables delete buttond
 }
 
 
-// Handles when the cancel button is pressed
+// Handles when the cancel button is pressed to return the page to the default state 
 function cancelAction() {
-	newProduct.removeClass();
-	newProduct.addClass("btn btn-primary");
-	editProduct.removeClass();
-	editProduct.addClass("btn btn-primary");
-	deleteProduct.removeClass();
-	deleteProduct.addClass("btn btn-primary");
-	disableForm();
-	formactions.html("");
-	$("#search-results-area").html("");
-	form.trigger("reset");
+
+	// Formats the main buttons
+	newProduct.removeClass();					// Removes all classes from new product button
+	newProduct.addClass("btn btn-primary");		// Adds default classes to new product button
+	editProduct.removeClass();					// Removes all classes from update product button
+	editProduct.addClass("btn btn-primary");	// Adds default classes to update product button
+	deleteProduct.removeClass();				// Removes all classes from delete product button
+	deleteProduct.addClass("btn btn-primary");	// Adds default classes to delete product button
+
+	disableForm();								// Calls method to disable the form
+	formactions.html("");						// Clears buttons below the form
+	$("#search-results-area").html("");			// Clears search results below the form
+	form.trigger("reset");						// Resets the form
 }
+
 
 // Enables the fields to search for products
 function enableSearchFields(){
-	var i = 0;	
-	$.each(fields,function(i){
-		fields[i].on();
-		generateSearch(i);
-		i++;
+	var i = 0;					// Local control variable
+	$.each(fields,function(i){	// Iterates through input fields to enable reqular expression search
+		fields[i].on();			// Enables event handler for input field
+		generateSearch(i);		// Calls method to apply search functionality
+		i++;					// Increments control variable
 	})
 }
+
 
 function disableSearchFields(){
-	var i = 0;	
-	$.each(fields,function(i){
-		fields[i].off();
-		i++;
+	var i = 0;					// Local control variable
+	$.each(fields,function(i){	// Iterates through input fields to disable reqular expression search
+		fields[i].off();		// Disables event handler for input field
+		i++;					// Increments control variable
 	})
 }
 
-// Searches products using the Product ID field
+
+// Applies search functionality
 function generateSearch(index){
-	fields[index].keyup(function(){				// Runs when key is released ID search field
-		
-		if(fields[index] == ""){
-			queries[index] = false;
+	fields[index].keyup(function(){						// Applies event handler when key is released in associated input field
+				
+		if(fields[index] == ""){						// Tests if the input field is empty
+			queries[index] = false;						// If true, sets related query to false
 		}
-		else
+		else  											// Else, there is a value in the input field
 		{
-			queries[index] = fields[index].val();				// Sets the value of of idQuery
+			queries[index] = fields[index].val();		// Sets the associated query variable to the value of the input field
 		}
-		regExs[index]= new RegExp(queries[index], 'i');
-		$("#search-results-area").html("");	
-		loadResults();					
-		})
+		regExs[index]= new RegExp(queries[index], 'i'); // Creates an associated regular expression with query variable
+		$("#search-results-area").html("");				// Clears the previous search results
+		loadResults();									// Calls method to search products
+	})
 }
 
-// Searches products
+// Searches products and displays results
 function loadResults() {
-	$.each(data,function(index,object){
+	var output;										// Local Variable to hold search result html
 
-		if (regExs[0].test(object.ProductID) && 
-			regExs[1].test(object.Manufacturer) && 
-			regExs[2].test(object.ProductName) && 
-			regExs[3].test(object.Description) && 
-			regExs[4].test(object.Category) && 
-			regExs[5].test(object.Quantity) && 
-			regExs[6].test(object.Price) && 
-			regExs[7].test(object.Weight)){
+	$.each(data,function(index,object){				// Iterates through products
 
-			var output;	
+		// Tests each product's attributes against the related search fields
+		if (regExs[0].test(object.ProductID) && 	// Tests product ID
+			regExs[1].test(object.Manufacturer) && 	// Tests manufacturer 
+			regExs[2].test(object.ProductName) && 	// Tests product name
+			regExs[3].test(object.Description) && 	// Tests description
+			regExs[4].test(object.Category) && 		// Tests category
+			regExs[5].test(object.Quantity) && 		// Tests quantity
+			regExs[6].test(object.Price) && 		// Tests price
+			regExs[7].test(object.Weight)){			// Tests Weight
+																			
+			// If product matches all tests, generate search result card	
 			output = '<div class="search-result" onClick="loadProduct(' + object.ProductID + ')">';
 			output += '<div class="product-image"><img src="' + object.Image + '"></div>';
 			output += '<p class="result-name">NAME: ' + object.ProductName + '</p>';
@@ -601,24 +676,25 @@ function loadResults() {
 			output += '<p>WEIGHT: ' + object.Weight + 'oz</p>';
 			output += '</div>';									
 
-			$("#search-results-area").append(output);
+			$("#search-results-area").append(output); // Adds the new html to the page
 		}
 	})
 
-
-	var emptyFields = "";
-
-	$.each(fields, function(index,object){
-		emptyFields += object.val();
+	// Prevents all products from being displayed when there are no values
+	var emptyFields = "";							// Local variable to hold the value of all input fields
+	$.each(fields, function(index,object){			// Iterates through all input fields
+		emptyFields += object.val();				// Adds the value of the input field to the local variable
 	})
-
-	if (emptyFields.length == 0){
-		$("#search-results-area").html("");
+	if (emptyFields.length == 0){					// Tests if the local variable is empty
+		$("#search-results-area").html("");			// If true, clear the search results area
 	}
 }
 
-// Loads the product details into the form field
+
+// Loads the product details into the form field when a search result is clicked
 function loadProduct(jsonID){
+
+	// Local variables to hold the values of a product
 	var idValue,
 		manfValue,
 		nameValue,
@@ -628,6 +704,7 @@ function loadProduct(jsonID){
 		priceValue,
 		weightValue;
 
+	// For loop that finds the product with a matching id and sets the local variables
 	for(var i = 0; i < data.length; i++){
 		if(data[i].ProductID == jsonID){
 			idValue = data[i].ProductID;
@@ -641,6 +718,7 @@ function loadProduct(jsonID){
 		}
 	}
 
+	// Loads the product values into the input fields
 	id.val(idValue);
 	manf.val(manfValue) ;
 	name.val(nameValue);
@@ -649,111 +727,133 @@ function loadProduct(jsonID){
     qty.val(qtyValue) ;
     price.val(priceValue) ;
     weight.val(weightValue) ;
-
 	
-    saveCurrentValues();
-    $("#search-results-area").html("");
-    disableSearchFields();
+    saveCurrentValues();				  		// Calls method to temporarily save values
+    $("#search-results-area").html("");	  		// Clears the search results displayed
+    disableSearchFields();				  		// Calls method to disable search functionality
+   
+    if(deleteOption){							// Tests if the loaded product is on the delete product option
+    	$("#delete").prop("disabled", false); 	// Enables delete buttond
+    	disableForm(); 							// If true, disables the form 
+    }
+    else{										// Else, the loaded product is on the upddate product option
+    	$("#update").prop("disabled", false); 	// Enables update buttond
+    }
 }
 
+
+// Handles general validation for input fields
 function validateFields(){
-	errorFeedback = "ERROR!\n"
-	var numbersOnly = new RegExp('^[0-9]*$');
 
-	if(id.val() == ""){
-		errorFeedback += "\n\nProduct ID: Field cannot be empty";
-	}
-	else if (!numbersOnly.test(id.val())){
-		errorFeedback += "\n\nProduct ID: Field may only contain numbers";
-	}
+	// Local variable to hold regular expression that tests that the input is only numbers
+	var numbersOnly = new RegExp('^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$');
 
-	if(manf.val() == ""){
-		errorFeedback += "\n\nManufacturer: Field cannot be empty";
-	}
+	// Local Variable to hold regular expression that tests that the input is only integers
+	var intsOnly = new RegExp('^[0-9]*$')
 
-	if(name.val() == ""){
-		errorFeedback += "\n\nProduct Name: Field cannot be empty";
+
+	if(id.val() == ""){															// Tests if product iD field is empty
+		errorFeedback += "\n\nProduct ID: Field cannot be empty";				// Adds to error message
+	}
+	else if (!numbersOnly.test(id.val())){										// Tests if product iD contains letters
+		errorFeedback += "\n\nProduct ID: Field may only contain numbers";		// Adds to error message
 	}
 
-	if(cat.val() == ""){
-		errorFeedback += "\n\nCategory: Field cannot be empty";
+	if(manf.val() == ""){														// Tests if manufactuer field is empty
+		errorFeedback += "\n\nManufacturer: Field cannot be empty";				// Adds to error message
 	}
 
-	if(qty.val() == ""){
-		errorFeedback += "\n\nQuantity: Field cannot be empty";
-	}
-	else if (!numbersOnly.test(qty.val())){
-		errorFeedback += "\n\nQuantity: Field may only contain numbers";
+	if(name.val() == ""){														// Tests if product name field is empty
+		errorFeedback += "\n\nProduct Name: Field cannot be empty";				// Adds to error message
 	}
 
-	if(price.val() == ""){
-		errorFeedback += "\n\nPrice: Field cannot be empty";
-	}
-	else if (!numbersOnly.test(price.val())){
-		errorFeedback += "\n\nPrice: Field may only contain numbers";
+	if(cat.val() == ""){														// Tests if category field is empty
+		errorFeedback += "\n\nCategory: Field cannot be empty";					// Adds to error message
 	}
 
-	if (!numbersOnly.test(weight.val())){
-		errorFeedback += "\n\nWeight: Field may only contain numbers";
+	if(qty.val() == ""){														// Tests if quantity field is empty
+		errorFeedback += "\n\nQuantity: Field cannot be empty";					// Adds to error message
+	}
+	else if (!intsOnly.test(qty.val())){										// Tests if quantity field contains non integers
+		errorFeedback += "\n\nQuantity: Field may only contain whole numbers";	// Adds to error message
+	}
+
+	if(price.val() == ""){														// Tests if price field is empty
+		errorFeedback += "\n\nPrice: Field cannot be empty";					// Adds to error message
+	}
+	else if (!numbersOnly.test(price.val())){									// Tests if the price contains letters
+		errorFeedback += "\n\nPrice: Field may only contain numbers";			// Adds to error message
+	}
+
+	if(weight.val() == ""){}													// Tests if weight is blank to distinguish from else if
+	else if (!numbersOnly.test(weight.val())){									// Tests if weight contains letters
+		errorFeedback += "\n\nWeight: Field may only contain numbers";			// Adds to error message
 	}
 }
 
-function validateNewProduct(){
-	var existingProduct = false;
+
+// Handles when the save button is pressed under new product option
+function saveNewProduct(){
+
+	errorFeedback = "ERROR!"				// Sets global variable to default state
+	var existingProduct = false;			// Local variable set to false 
 	
-	for(var i = 0; i < data.length; i++){
-		if(data[i].ProductID == id.val()){
-			existingProduct = true;
+	for(var i = 0; i < data.length; i++){	// For loop to iterate through products
+		if(data[i].ProductID == id.val()){	// Tests if product id entered exists
+			existingProduct = true;			// If true, sets local variable to true
 		}
 	}
 	
-	if (existingProduct){
+	if (existingProduct){					// If product exists an error is added to the error message
 		errorFeedback += "\n\nProduct ID: ID already exists";
 	}
 
-	validateFields();
+	validateFields();						// Calls method to do general input field validation
 
-	if(errorFeedback == "ERROR!\n"){
-		alert("Success");
-		addNewProduct();
-		newProductAction();
+	if(errorFeedback == "ERROR!")			// Tests if the error message is set to the default
+	{										// If true, there were no validation errors
+		alert("Success");					// Display success message
+		addNewProduct();					// Calls method to add the product to the json data array
+		newProductAction();					// Calls method to reload the new product option
 	}
-	else
+	else  									// Else, there was a validation error
 	{
-		saveCurrentValues();
-		alert(errorFeedback);
-		newProductAction();
-		loadOldValues();
+		saveCurrentValues();				// Calls method to save the current values in the input fields
+		alert(errorFeedback);				// Displays error message
+		newProductAction();					// Calls method to reload the new product option
+		loadOldValues();					// Calls method to reload the saved values into the input fields
 	}
 }
 
 
+// Handles adding product to json data array
 function addNewProduct(){
 
-	var catImage;
-	if(cat.val() == "CPU"){
-		catImage = "images/products/cpu.png";
+	var catImage;										// Local variable to hold html
+
+	if(cat.val() == "CPU"){								// Tests if entered category is CPU
+		catImage = "images/products/cpu.png";			// Sets local variable to assoicated html image path
 	}
-	else if (cat.val() == "Motherboard"){
-		catImage = "images/prdoucts/motherboard.png";
+	else if (cat.val() == "Motherboard"){				// Tests if entered category is Motherboard
+		catImage = "images/products/motherboard.png";	// Sets local variable to assoicated html image path
 	}
-	else if (cat.val() == "Memory"){
-		catImage = "images/prdoucts/memory.png";
+	else if (cat.val() == "Memory"){					// Tests if entered category is Memory
+		catImage = "images/products/memory.png";		// Sets local variable to assoicated html image path
 	}
-	else if (cat.val() == "Storage"){
-		catImage = "images/prdoucts/storage.png";
+	else if (cat.val() == "Storage"){					// Tests if entered category is Storage
+		catImage = "images/products/storage.png";		// Sets local variable to assoicated html image path
 	}
-	else if (cat.val() == "Power Supply"){
-		catImage = "images/prdoucts/power.png";
+	else if (cat.val() == "Power Supply"){				// Tests if entered category is Power Supply
+		catImage = "images/products/power.png";			// Sets local variable to assoicated html image path
 	}
-	else if (cat.val() == "Cases"){
-		catImage = "images/prdoucts/case.png";
+	else if (cat.val() == "Cases"){						// Tests if entered category is Cases
+		catImage = "images/products/case.png";			// Sets local variable to assoicated html image path
 	}
-	else {
-		catImage = "images/prdoucts/new.png";
+	else {												// Otherwise the entered category does not match an existing category
+		catImage = "images/products/new.png";			// Sets local variable to assoicated html image path
 	}
-	// CODE DOESN'T SEEM TO ACTUALLY ADD TO DATA JSON
-	data.push({"ProductName": name.val(),
+	
+	data.push({"ProductName": name.val(),				// Creates a new json data object in array with input field values and local varaible
 			        "ProductID": id.val(),
 			        "Description": desc.val(),
 			        "Category": cat.val(),
@@ -764,8 +864,11 @@ function addNewProduct(){
 			        "Image": catImage});
 }
 
+
+// Handles when the update button is pressed 
 function validateUpdate(){
 	
+	// Tests the values of the input fields against the values saved when the product was loaded
 	if( oldID == id.val() &&
 		oldManf == manf.val() &&
 		oldName == name.val() &&
@@ -773,32 +876,37 @@ function validateUpdate(){
 		oldCat == cat.val() &&
 		oldQty == qty.val() &&
 		oldPrice == price.val() &&
-		OldWeight == weight.val()){
+		OldWeight == weight.val()){				// If the values are the same, nothing has been updated
 
-		alert("No Chanages have been made");
-		updateProductAction();
-		loadOldValues();
-
+		alert("No Chanages have been made");	// Displays the error
+		updateProductAction();					// Calls method to reload the updated product action
+		loadOldValues();						// Calls method to load the saved values of the product being edited
+		$("#update").prop("disabled", false);	// Enables update button 
 	}
-	else 
+	else 										// Else, there has been a change made
 	{
-		validateFields();
-		if(errorFeedback == "ERROR!\n"){
-			alert("Success");
-			updateProductAction();
+		errorFeedback = "ERROR!"				// Sets global variable to default state
+		validateFields();						// Calls method for general input field validation
+		if(errorFeedback == "ERROR!")			// Tests if the the global variable is still in the default state
+		{										// If true, the validateFields method found no errors
+			alert("Success");					// Displays the success
+			updateProduct();					// Calls method to update the product's json data
+			updateProductAction();				// Calls method to reload update product option
 		}
-		else
+		else   									// Else, the validateFeilds method found an error
 		{	
-			saveCurrentValues();
-			alert(errorFeedback);
-			updateProductAction();
-			loadOldValues();
-			disableSearchFields();
-			
+			saveCurrentValues();				// Calls method to save the current values
+			alert(errorFeedback);				// Displays the error message
+			updateProductAction();				// Calls method to reload the update product option
+			loadOldValues();					// Calls method to load saved values to input fields
+			disableSearchFields();				// Disables search results
+			$("#update").prop("disabled", false);// Enables update button
 		}
 	}
- 
 }
+
+
+// Saves current values in input fields to global variables
 function saveCurrentValues(){
 	oldID = id.val();
 	oldManf = manf.val();
@@ -809,6 +917,9 @@ function saveCurrentValues(){
 	oldPrice = price.val();
 	OldWeight = weight.val();
 }
+
+
+// Loads saved values in global variables to input fields
 function loadOldValues(){
 	id.val(oldID);
 	manf.val(oldManf);
@@ -819,10 +930,90 @@ function loadOldValues(){
 	price.val(oldPrice);
 	weight.val(OldWeight);
 }
-function updateProduct(){
 
+
+// Handles the update of a product's json data
+function updateProduct(){
+	var catImage;										// Local variable to hold html
+
+	if(cat.val() == "CPU"){								// Tests if entered category is CPU
+		catImage = "images/products/cpu.png";			// Sets local variable to assoicated html image path
+	}
+	else if (cat.val() == "Motherboard"){				// Tests if entered category is Motherboard
+		catImage = "images/products/motherboard.png";	// Sets local variable to assoicated html image path
+	}
+	else if (cat.val() == "Memory"){					// Tests if entered category is Memory
+		catImage = "images/products/memory.png";		// Sets local variable to assoicated html image path
+	}
+	else if (cat.val() == "Storage"){					// Tests if entered category is Storage
+		catImage = "images/products/storage.png";		// Sets local variable to assoicated html image path
+	}
+	else if (cat.val() == "Power Supply"){				// Tests if entered category is Power Supply
+		catImage = "images/products/power.png";			// Sets local variable to assoicated html image path
+	}
+	else if (cat.val() == "Cases"){						// Tests if entered category is Cases
+		catImage = "images/products/case.png";			// Sets local variable to assoicated html image path
+	}
+	else {												// Otherwise the entered category does not match an existing category
+		catImage = "images/products/new.png";			// Sets local variable to assoicated html image path
+	}
+
+	for(var i = 0; i < data.length; i++){				// For loop to iterate through json data of products
+		if(data[i].ProductID == oldID)					// Tests if product matches the loaded product
+			{		 									// If true, updates the product to the values of the input fields and local variable
+			data[i].ProductID = id.val();
+			data[i].Manufacturer = manf.val();
+			data[i].ProductName = name.val();
+			data[i].Description = desc.val();
+			data[i].Category = cat.val();
+			data[i].Quantity = qty.val();
+			data[i].Price = price.val();
+			data[i].Weight = weight.val();
+			data[i].Image = catImage;
+		}
+	}
 }
 
-function deleteExistingProduct(){
 
+// Handles when the delete button is pressed under the delete product option
+function removeProduct(){
+	var beforeProduct, afterproduct, productIndex;					// Local varaibles
+
+	// Prompts the user to confirm they want to delete the product
+  	if (confirm("Are you sure you want to delete this product?")) {	// If they select ok, delete product
+
+  		for(var i = 0; i < data.length; i++){						// For loop to iterate through json data of products
+			if(data[i].ProductID == oldID){							// Tests if product matches the loaded product	
+				productIndex = i;									// Records the product's array index
+			}
+  		}
+
+  		if(productIndex == 0){										// Tests if the product is the first json object in the array
+  			data.shift();											// If true, deletes the first product in the array
+  		} else if(productIndex == (data.length - 1)){				// Else, tests if the product is the last json object in the array
+  			data.pop();												// If true, deletes the last product in the array
+  		} else{														// Else, the product is somewhere else in the array
+
+
+  			beforeProduct = new Array();							// Creates a new array to hold json data before the product
+  			
+  			for(var i =0; i < productIndex; i++){					// Iterates through all products up to the selected product
+  				beforeProduct.push(data[i]);						// Adds the product to the new array
+  			}
+
+  			afterproduct = new Array();								// Creates a second new array to hold json data after the product
+
+  			for(var i = data.length - 1; i > productIndex; i--){	// Iterates through all producducts after the selected product
+  				afterproduct.unshift(data[i]);						// Adds the product to the second new array
+  			}
+
+			for(var i = 0; i < afterproduct.length; i++){			// Iterates through all products in the second new array
+				beforeProduct.push(afterproduct[i]);				// Adds each product in the second new array to the first new array
+			}
+			console.log(beforeProduct);
+			data = beforeProduct;									// Sets the orignal array of json data objects to the new data array
+  		}									
+  	} 
+
+	deleteProductAction();											// Reloads the delete product option
 }
