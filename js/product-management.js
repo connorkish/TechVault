@@ -441,10 +441,10 @@ function newProductAction(){
 	deleteProduct.addClass("btn btn-primary");	// Adds default classes to delete product button
 
 	// Formats the form
-	enableForm();								// Calls method to enable form
-	manualClearFields();						// Calls method to clear contents of input fields	
-	enhancedReset();							// Calls method to reset form search
-	disableSearchFields();						// Calls method to remove query searches from input fields
+	enableForm();								// Calls function to enable form
+	manualClearFields();						// Calls function to clear contents of input fields	
+	enhancedReset();							// Calls function to reset form search
+	disableSearchFields();						// Calls function to remove query searches from input fields
 	formactions.html("");						// Clears buttons that may be below the form
 
 	// Addds buttons below the form related to the new product option
@@ -455,8 +455,8 @@ function newProductAction(){
 	);
 
 	// Adds OnClick events to new buttons
-	$("#save").click(saveNewProduct);		// Calls method to validate the entry of a new product
-	$("#cancel").click(cancelAction);		// Calls method to cancel the entry
+	$("#save").click(saveNewProduct);		// Calls function to validate the entry of a new product
+	$("#cancel").click(cancelAction);		// Calls function to cancel the entry
 
 	deleteOption = false;					// Sets global variable to say the delete option is not being used
 }
@@ -475,10 +475,10 @@ function updateProductAction() {
 
 
 	// Formats the form
-	enableForm();								// Calls method to enable form
-	manualClearFields();						// Calls method to clear contents of input fields
-	enableSearchFields();						// Calls method to add query searches to input fields
-	enhancedReset();							// Calls method to reset form search
+	enableForm();								// Calls function to enable form
+	manualClearFields();						// Calls function to clear contents of input fields
+	enableSearchFields();						// Calls function to add query searches to input fields
+	enhancedReset();							// Calls function to reset form search
 	formactions.html("");						// Clears buttons that may be below the form
 
 	// Addds buttons below the form related to the new product option
@@ -489,8 +489,8 @@ function updateProductAction() {
 	);
 
 	// Adds OnClick events to new buttons
-	$("#update").click(validateUpdate);			// Calls method to validate the entry of product update
-	$("#cancel").click(cancelAction);			// Calls method to cancel the entry
+	$("#update").click(validateUpdate);			// Calls function to validate the entry of product update
+	$("#cancel").click(cancelAction);			// Calls function to cancel the entry
 	$("#reset").click(enhancedReset);			
 
 	$("#update").prop("disabled", true);		// Disables update button
@@ -510,10 +510,10 @@ function deleteProductAction() {
 	deleteProduct.addClass("btn active");		// Adds active classes to delete product button
 
 	// Formats the form
-	enableForm();								// Calls method to enable form
-	manualClearFields();						// Calls method to clear contents of input fields
-	enableSearchFields();						// Calls method to add query searches to input fields
-	enhancedReset();							// Calls method to reset form search
+	enableForm();								// Calls function to enable form
+	manualClearFields();						// Calls function to clear contents of input fields
+	enableSearchFields();						// Calls function to add query searches to input fields
+	enhancedReset();							// Calls function to reset form search
 	formactions.html("");						// Clears buttons that may be below the form
 
 	// Addds buttons below the form related to the new product option
@@ -524,9 +524,9 @@ function deleteProductAction() {
 	);
 
 	// Adds OnClick events to new buttons
-	$("#delete").click(removeProduct);			// Calls method to remove product
-	$("#cancel").click(cancelAction);			// Calls method to cancel the entry
-	$("#reset").click(enhancedReset);			// Calls method to reset form beyond normal
+	$("#delete").click(removeProduct);			// Calls function to remove product
+	$("#cancel").click(cancelAction);			// Calls function to cancel the entry
+	$("#reset").click(enhancedReset);			// Calls function to reset form beyond normal
 
 	deleteOption = true;						// Sets global variable to say the delete option is being used
 	$("#delete").prop("disabled", true); 		// Disables delete buttond
@@ -604,7 +604,7 @@ function cancelAction() {
 	deleteProduct.removeClass();				// Removes all classes from delete product button
 	deleteProduct.addClass("btn btn-primary");	// Adds default classes to delete product button
 
-	disableForm();								// Calls method to disable the form
+	disableForm();								// Calls function to disable the form
 	formactions.html("");						// Clears buttons below the form
 	$("#search-results-area").html("");			// Clears search results below the form
 	form.trigger("reset");						// Resets the form
@@ -616,7 +616,7 @@ function enableSearchFields(){
 	var i = 0;					// Local control variable
 	$.each(fields,function(i){	// Iterates through input fields to enable reqular expression search
 		fields[i].on();			// Enables event handler for input field
-		generateSearch(i);		// Calls method to apply search functionality
+		generateSearch(i);		// Calls function to apply search functionality
 		i++;					// Increments control variable
 	})
 }
@@ -644,7 +644,7 @@ function generateSearch(index){
 		}
 		regExs[index]= new RegExp(queries[index], 'i'); // Creates an associated regular expression with query variable
 		$("#search-results-area").html("");				// Clears the previous search results
-		loadResults();									// Calls method to search products
+		loadResults();									// Calls function to search products
 	})
 }
 
@@ -728,9 +728,9 @@ function loadProduct(jsonID){
     price.val(priceValue) ;
     weight.val(weightValue) ;
 	
-    saveCurrentValues();				  		// Calls method to temporarily save values
+    saveCurrentValues();				  		// Calls function to temporarily save values
     $("#search-results-area").html("");	  		// Clears the search results displayed
-    disableSearchFields();				  		// Calls method to disable search functionality
+    disableSearchFields();				  		// Calls function to disable search functionality
    
     if(deleteOption){							// Tests if the loaded product is on the delete product option
     	$("#delete").prop("disabled", false); 	// Enables delete buttond
@@ -808,20 +808,20 @@ function saveNewProduct(){
 		errorFeedback += "\n\nProduct ID: ID already exists";
 	}
 
-	validateFields();						// Calls method to do general input field validation
+	validateFields();						// Calls function to do general input field validation
 
 	if(errorFeedback == "ERROR!")			// Tests if the error message is set to the default
 	{										// If true, there were no validation errors
 		alert("Success");					// Display success message
-		addNewProduct();					// Calls method to add the product to the json data array
-		newProductAction();					// Calls method to reload the new product option
+		addNewProduct();					// Calls function to add the product to the json data array
+		newProductAction();					// Calls function to reload the new product option
 	}
 	else  									// Else, there was a validation error
 	{
-		saveCurrentValues();				// Calls method to save the current values in the input fields
+		saveCurrentValues();				// Calls function to save the current values in the input fields
 		alert(errorFeedback);				// Displays error message
-		newProductAction();					// Calls method to reload the new product option
-		loadOldValues();					// Calls method to reload the saved values into the input fields
+		newProductAction();					// Calls function to reload the new product option
+		loadOldValues();					// Calls function to reload the saved values into the input fields
 	}
 }
 
@@ -879,26 +879,26 @@ function validateUpdate(){
 		OldWeight == weight.val()){				// If the values are the same, nothing has been updated
 
 		alert("No Chanages have been made");	// Displays the error
-		updateProductAction();					// Calls method to reload the updated product action
-		loadOldValues();						// Calls method to load the saved values of the product being edited
+		updateProductAction();					// Calls function to reload the updated product action
+		loadOldValues();						// Calls function to load the saved values of the product being edited
 		$("#update").prop("disabled", false);	// Enables update button 
 	}
 	else 										// Else, there has been a change made
 	{
 		errorFeedback = "ERROR!"				// Sets global variable to default state
-		validateFields();						// Calls method for general input field validation
+		validateFields();						// Calls function for general input field validation
 		if(errorFeedback == "ERROR!")			// Tests if the the global variable is still in the default state
-		{										// If true, the validateFields method found no errors
+		{										// If true, the validateFields function found no errors
 			alert("Success");					// Displays the success
-			updateProduct();					// Calls method to update the product's json data
-			updateProductAction();				// Calls method to reload update product option
+			updateProduct();					// Calls function to update the product's json data
+			updateProductAction();				// Calls function to reload update product option
 		}
-		else   									// Else, the validateFeilds method found an error
+		else   									// Else, the validateFeilds function found an error
 		{	
-			saveCurrentValues();				// Calls method to save the current values
+			saveCurrentValues();				// Calls function to save the current values
 			alert(errorFeedback);				// Displays the error message
-			updateProductAction();				// Calls method to reload the update product option
-			loadOldValues();					// Calls method to load saved values to input fields
+			updateProductAction();				// Calls function to reload the update product option
+			loadOldValues();					// Calls function to load saved values to input fields
 			disableSearchFields();				// Disables search results
 			$("#update").prop("disabled", false);// Enables update button
 		}
@@ -994,7 +994,6 @@ function removeProduct(){
   			data.pop();												// If true, deletes the last product in the array
   		} else{														// Else, the product is somewhere else in the array
 
-
   			beforeProduct = new Array();							// Creates a new array to hold json data before the product
   			
   			for(var i =0; i < productIndex; i++){					// Iterates through all products up to the selected product
@@ -1010,7 +1009,7 @@ function removeProduct(){
 			for(var i = 0; i < afterproduct.length; i++){			// Iterates through all products in the second new array
 				beforeProduct.push(afterproduct[i]);				// Adds each product in the second new array to the first new array
 			}
-			console.log(beforeProduct);
+			
 			data = beforeProduct;									// Sets the orignal array of json data objects to the new data array
   		}									
   	} 

@@ -309,12 +309,27 @@ const jsonData = [
 ];
 
 function loadProducts() {
-	return `
+	return ` 
 	<div>
 		<p>${jsonData.ProductName}</p>
 	</div>
 	`
 }
+
+
 document.getElementById("search-results-area").innerHTML = `
 ${jsonData.map(loadProducts).join('')}
 `
+
+
+function otherload(){
+	var output;
+
+	for (var i = 0; i < jsonData.length; i++){
+		output = '<div id="prod'+ i +'"><p>' + jsonData[i].ProductName + '</p></div>';
+		$("#content").append(output);
+	}
+
+}
+
+$(document).ready(otherload);
