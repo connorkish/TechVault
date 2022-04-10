@@ -15,38 +15,38 @@
 	<link href="css/product-CPUs.css" rel="stylesheet" type="text/css">
 	<!-- Icon JS -->
 	<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
-<body onload="loadResults()">
-	<header>
-		<div id="header-top">
-			<div id="logo-container">
-				<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
-			</div>
-			<div id="header-right">
-				<a href="account-details.html" id="account">Hello John</a>
-				<a href="#"><img id="cart-icon" src="images/cart.png" alt="Shopping Cart Icon">Cart</a>
-				<div id="search-container">
-					<input type="text" id="search" value="search">
+<body>
+	
+
+
+	<div id="page">
+		<header>
+			<div id="header-top">
+				<div id="logo-container">
+					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
 				</div>
-		  	</div>
-		</div>
-	</header>	
-	<nav>
-		<ul>
-			<li><a href="product-CPUs.html">CPUs</a></li>
-			<li><a href="product-motherboards.html">Motherboards</a></li>
-			<li><a href="#">Memory</a></li>
-			<li><a href="#">Storage</a></li>
-			<li><a href="#">Power Supplies</a></li>
-			<li><a href="#">Cases</a></li>
-		</ul>
-	</nav>
-	<div id="content-container">
-	
-	</div>
-	
-	<footer>
-		<div id="footer-links">
+				<div id="header-right">
+					<a href="account-details.html" id="account">Hello John</a>
+
+
+
+					<div id="cart">
+						<span>Cart</span>
+						<i class="fa-solid fa-cart-flatbed"></i>
+						<div id="cart-num"></div>
+					</div>
+
+
+
+					<div id="search-container">
+						<input type="text" id="search" value="search">
+					</div>
+			  	</div>
+			</div>
+		</header>	
+		<nav>
 			<ul>
 				<li><a href="product-CPUs.html">CPUs</a></li>
 				<li><a href="product-motherboards.html">Motherboards</a></li>
@@ -55,18 +55,47 @@
 				<li><a href="#">Power Supplies</a></li>
 				<li><a href="#">Cases</a></li>
 			</ul>
+		</nav>
+		<div id="content-container"></div>
+		<footer>
+			<div id="footer-links">
+				<ul>
+					<li><a href="product-CPUs.html">CPUs</a></li>
+					<li><a href="product-motherboards.html">Motherboards</a></li>
+					<li><a href="#">Memory</a></li>
+					<li><a href="#">Storage</a></li>
+					<li><a href="#">Power Supplies</a></li>
+					<li><a href="#">Cases</a></li>
+				</ul>
+			</div>
+			<div id="social-media">
+				<ul>
+					<li><a href="#" title="LinkedIn"><img src="images/social-media/linked.png" alt="Tech Vault LinkedIn Page"></a></li>
+					<li><a href="#" title="Facebook"><img src="images/social-media/facebook.png" alt="Tech Vault Facebook Page"></a></li>
+					<li><a href="#" title="Instagram"><img src="images/social-media/insta.png" alt="Tech Vault Instagram Page"></a></li>
+					<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
+					<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
+					<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
+		  	  </ul>
+		    </div>
+		</footer>
+	</div>
+
+
+
+	<div id="cart-sidebar">
+		<div id="cart-sidebar-header">
+			<div id="close-cart-sidebar">X</div>
+			<p id="subtotal"></p>
+			<div id="proceed-button-container">
+				<button class="btn btn-primary" id="proceed-button">Proceed to Cart</button>
+			</div>
 		</div>
-		<div id="social-media">
-			<ul>
-				<li><a href="#" title="LinkedIn"><img src="images/social-media/linked.png" alt="Tech Vault LinkedIn Page"></a></li>
-				<li><a href="#" title="Facebook"><img src="images/social-media/facebook.png" alt="Tech Vault Facebook Page"></a></li>
-				<li><a href="#" title="Instagram"><img src="images/social-media/insta.png" alt="Tech Vault Instagram Page"></a></li>
-				<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
-				<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
-				<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
-	  	  </ul>
-	    </div>
-	</footer>
+		<div id="cart-sidebar-items"></div>
+	</div>
+
+
+
 	<script src="js/product-CPUs.js"></script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="js/jquery-3.4.1.min.js"></script>

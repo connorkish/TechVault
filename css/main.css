@@ -42,7 +42,7 @@ header a{
 #header-right{
 	float:right;
 	vertical-align: top;
-	text-align: right;
+	text-align: left;
 	padding-top: 10px;
 	padding-bottom: 5px;
 }
@@ -54,16 +54,63 @@ header a:hover{
 
 #account{
 	text-align: left;
-	padding-right: 50px;
+	margin-right: 25px;
+}
+#cart{
+	cursor: pointer;
+	text-align: right;
+	color: white;
+	display: inline;
+	padding: 0;
+	margin: 0;
 }
 
 #cart-icon{
-	height: 15px;
+	height: 20px;
 	padding-right: 0px;
+	margin-right: 5px;
+}
+
+.fa-cart-flatbed{
+	font-size: 30px;
+	padding: 0;
+	color: white;
+}
+
+.fa-square{
+	position:relative;
+	right: 32px;
+	bottom: 8px;
+	color:steelblue;
+	padding:0;
+	margin:0;
+	font-size: 31px;
+}
+
+#cart-num{
+	font-weight: bold;
+	display: inline-block;
+	border-radius: 5px;
+	text-align: center;
+	right: 32px;
+	bottom: 15px;
+	padding: 5px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	background-color: steelblue;
+	color: white;
+	position: relative;
+	line-height: 1;
+	width: 30px;
+	visibility: hidden;
 }
 
 #search-container{
 	padding-top: 5px;
+}
+
+#search{
+	width: 180px;
 }
 
 
