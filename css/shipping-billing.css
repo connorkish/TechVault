@@ -1,0 +1,353 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: account-details.css */
+/* Last Updated: 3/9/22 */
+/* Last Updated By: Josh Wagner */
+
+#content{
+	padding-top: 20px;
+	margin: auto;
+}
+
+#details{
+	padding-left: 50px;
+}
+
+#details h2, p{ 
+	display: inline;
+	
+}
+
+#details h2 { 
+	font-size: 20px;
+	font-weight: bold; 
+	line-height: 2;
+}
+
+#cancel-button{
+	margin-left: 10px;
+}
+
+form{
+	width: 600px;
+}
+
+.form-group{
+	margin: auto;
+}
+
+label{
+	font-weight: bold;
+}
+
+.form-title{
+	padding-left: 10px;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+small{
+	color: #4A0203;
+	position:relative;
+	right: 40px;
+}
+
+.fa-circle-check{
+	color:#2d9117;;
+	visibility: hidden;
+	position: relative;
+	bottom: 30px;
+}
+
+.fa-circle-xmark{
+	color:#ff0000;
+	visibility: hidden;
+	position: relative;
+	bottom: 30px;
+}
+
+.selected-field{
+	border-width: 5px;
+	border-color: lightblue;
+}
+
+.unselected-field{
+	border-width: 0px;
+}
+
+.row1{
+	height: 110px;
+}
+
+.fname-container{
+	float: left;
+}
+
+#ship-fname{
+	width: 200px;
+}
+
+#ship-fname-pass{
+	left: 170px;
+}
+
+#ship-fname-fail{
+	left: 150px;
+}
+
+#bill-fname{
+	width: 200px;
+}
+
+#bill-fname-pass{
+	left: 170px;
+}
+
+#bill-fname-fail{
+	left: 150px;
+}
+
+.lname-container{
+	padding-left: 250px;
+}
+
+#ship-lname{
+	max-width: 200px;
+}
+
+#ship-lname-pass{
+	left: 170px;
+}
+
+#ship-lname-fail{
+	left: 150px;
+}
+
+#bill-lname{
+	max-width: 200px;
+}
+
+#bill-lname-pass{
+	left: 170px;
+}
+
+#bill-lname-fail{
+	left: 150px;
+}
+
+.email-container{
+	height: 110px;
+	display: inline-block;
+}
+
+#ship-email{
+	width: 300px;
+}
+
+#ship-email-pass{
+	left: 270px;
+}
+
+#ship-email-fail{
+	left: 250px;
+}
+
+#bill-email{
+	width: 300px;
+}
+
+#bill-email-pass{
+	left: 270px;
+}
+
+#bill-email-fail{
+	left: 250px;
+}
+
+.row2{
+	height: 100px;
+}
+
+.phone-container{
+	display: inline-block;
+	padding-right: 25px;
+}
+
+#ship-phone{
+	width: 150px;
+}
+
+#ship-optional{
+	display: inline;
+	font-weight: normal;
+	font-size: 15px;
+}
+#ship-phone-pass{
+	left: 125px;
+}
+
+#ship-phone-fail{
+	left: 105px;
+}
+
+#bill-phone{
+	width: 150px;
+}
+
+#bill-optional{
+	display: inline;
+	font-weight: normal;
+	font-size: 15px;
+}
+#bill-phone-pass{
+	left: 125px;
+}
+
+#bill-phone-fail{
+	left: 105px;
+}
+
+.street-address-container{
+	height: 110px;
+}
+
+#ship-street-address{
+	width: 400px;
+}
+
+#ship-street-pass{
+	left: 370px;
+}
+
+#ship-street-fail{
+	left: 350px;
+}
+
+#bill-street-address{
+	width: 400px;
+}
+
+#bill-street-pass{
+	left: 370px;
+}
+
+#bill-street-fail{
+	left: 350px;
+}
+
+.row3{
+	height: 110px;
+	padding-bottom: 20px;
+}
+
+.city-container{
+	display: inline-block;
+}
+
+#ship-city{
+	width: 150px;
+}
+
+#ship-city-pass{
+	left: 120px;
+}
+
+#ship-city-fail{
+	left: 100px;
+}
+
+#bill-city{
+	width: 150px;
+}
+
+#bill-city-pass{
+	left: 120px;
+}
+
+#bill-city-fail{
+	left: 100px;
+}
+
+.state-container{
+	padding-left: 20px;
+	display: inline-block;
+}
+
+#ship-state{
+	width: 150px;
+}
+
+#ship-state-pass{
+	left: 110px;
+}
+
+#ship-state-fail{
+	left: 90px;
+}
+
+#bill-state{
+	width: 150px;
+}
+
+#bill-state-pass{
+	left: 110px;
+}
+
+#bill-state-fail{
+	left: 90px;
+}
+
+.zip-container{
+	padding-left: 20px;
+	display: inline-block;
+}
+
+#ship-zip{
+	width: 90px;
+}
+
+#ship-zip-pass{
+	left: 65px;
+}
+
+#ship-zip-fail{
+	left: 45px;
+}
+
+#bill-zip{
+	width: 90px;
+}
+
+#bill-zip-pass{
+	left: 65px;
+}
+
+#bill-zip-fail{
+	left: 45px;
+}
+
+#form-buttons{
+	display: block;
+	padding-top: 10px;
+}
+
+#form-result{
+	vertical-align: bottom;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-left: 20px;
+	display: inline;
+}
+
+#billing{
+	padding-top: 25px;
+}
+
+#billcheckbox{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
