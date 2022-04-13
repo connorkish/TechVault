@@ -334,11 +334,41 @@ const myProducts = [
 
 var cart = [{
 	        "ProductID": 200650,
-	        "Qty": 2,
+	        "Qty": 1,
 	        "ProductPrice": 100,
 	        "Image": "images/products/motherboard/mb2.png",
 	        "ProductName": "Gigabyte B550M DS3H"
-	    }];
+	    },
+	    {
+	        "ProductID": 100300,
+	        "Qty": 1,
+	        "ProductPrice": 250,
+	        "Image": "images/products/cpu/cpu1.png",
+	        "ProductName": "Intel Core i3-8350k" 
+	    },
+	    {
+	        "ProductID": 500500,
+	        "Qty": 1,
+	        "ProductPrice": 75,
+			"Image": "images/products/power.png",
+	        "ProductName": "Rosewill Glacier Series 850W ATX Single 12V Rail" 
+	    },
+	     {
+	     	"ProductID": 300300,
+	     	"Qty": 3,
+	     	"ProductPrice": 64,
+	     	"Image": "images/products/memory.png",
+	        "ProductName": "G.SKILL Ripjaws V Series 16GB DDR4 SDRAM"
+	    },
+	    {
+	        "ProductID": 600100,
+        	"Qty": 1,
+        	"ProductPrice": 100,
+			"Image": "images/products/case.png",
+	        "ProductName": "Corsair 4000D Mid-Tower ATX Case"  
+	    }
+
+	    ];
 
 const cartIcon = $("#cart"),
 	  subTotal = $("#subtotal");
@@ -384,13 +414,13 @@ function loadShoppingCart(){																			// Loads cart html in shopping ca
 		output +=		'<p class="cart-item-name">' + object.ProductName + '</p>';
 		output +=		'<p class="price-format">$<span class="price">' + object.ProductPrice + '</span>.00</p>';
 		output +=		'<input type="number" value="' + object.Qty + '" min="1" class="input-qty">';
-		output +=		'<button class="btn btn-primary" id="remove">Remove</button>';
+		output +=		'<button class="btn btn-primary remove">Remove</button>';
 		output +=	'</div>';
 
 		$("#shopping-cart").append(output); 														
 		
 		subtotalCost += object.Price;																	// Updates the value of the cart subtotal
-		$("#" + object.ProductID).find("#remove").click({param1: object.ProductID}, removeCartItem);	// Adds click event to remove the product from the cart sidebar
+		$("#" + object.ProductID).find(".remove").click({param1: object.ProductID}, removeCartItem);	// Adds click event to remove the product from the cart sidebar
 		$("#" + object.ProductID).find("input").change(updateCart);										// Adds change event to update the cart when the qty is changed																			
 	})
 

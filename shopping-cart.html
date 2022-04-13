@@ -19,46 +19,51 @@
 	<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
+
 <body onload="ShoppingCart()">
-	<div id="page">
-		<header>
-			<div id="header-top">
-				<div id="logo-container">
-					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
-				</div>
-				<div id="header-right">
-					<a href="account-details.html" id="account">Hello John</a>
-					<div id="cart">
-						<span>Cart</span>
-						<i class="fa-solid fa-cart-flatbed"></i>
-						<div id="cart-num"></div>
+	<div id="page-container">
+		<div id="page-wrap">
+			<div id="page">
+				<header>
+					<div id="header-top">
+						<div id="logo-container">
+							<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
+						</div>
+						<div id="header-right">
+							<a href="account-details.html" id="account">Hello John</a>
+							<div id="cart">
+								<span>Cart</span>
+								<i class="fa-solid fa-cart-flatbed"></i>
+								<div id="cart-num"></div>
+							</div>
+							<div id="search-container">
+								<input type="text" id="search" value="search">
+							</div>
+					  	</div>
 					</div>
-					<div id="search-container">
-						<input type="text" id="search" value="search">
+				</header>	
+				<nav>
+					<ul>
+						<li><a href="product-CPUs.html">CPUs</a></li>
+						<li><a href="product-motherboards.html">Motherboards</a></li>
+						<li><a href="#">Memory</a></li>
+						<li><a href="#">Storage</a></li>
+						<li><a href="#">Power Supplies</a></li>
+						<li><a href="#">Cases</a></li>
+					</ul>
+				</nav>
+				<div id="content-container">
+					<div id="shopping-cart-container">
+						<h1>MY CART</h1>
+						<div id="shopping-cart">
+							
+						</div>
 					</div>
-			  	</div>
-			</div>
-		</header>	
-		<nav>
-			<ul>
-				<li><a href="product-CPUs.html">CPUs</a></li>
-				<li><a href="product-motherboards.html">Motherboards</a></li>
-				<li><a href="#">Memory</a></li>
-				<li><a href="#">Storage</a></li>
-				<li><a href="#">Power Supplies</a></li>
-				<li><a href="#">Cases</a></li>
-			</ul>
-		</nav>
-		<div id="content-container">
-			<div id="shopping-cart-container">
-				<h1>MY CART</h1>
-				<div id="shopping-cart">
-					
+					<div id="checkout">
+						<h2 id="subtotal"></h2>
+						<button class="btn btn-primary" id="checkout-button">Checkout</button>
+					</div>
 				</div>
-			</div>
-			<div id="checkout">
-				<h2 id="subtotal"></h2>
-				<button class="btn btn-primary" id="checkout-button">Checkout</button>
 			</div>
 		</div>
 		<footer>

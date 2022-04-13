@@ -344,12 +344,13 @@ const page = $("#page"),
 	  proceed = $("#proceed-button"),
 	  updateCartButton = $("#update-cart"),
 	  sampleProduct = $("#123");
+	  pageCategory = $("#category").text();
 var sideCartOn = false
+
 
 // Functions that run when the document loads
 $(document).ready(function(){
 	loadProducts();								// Calls function to load items to the page
-	toggleCart();								// Calls function to hide cart sidebar
 	cartIcon.click(toggleCart);					// Adds Click event to the cart icon
 	closeSideCartButton.click(closeSideCart);	// Adds Click event to close button on side cart
 	updateCartButton.click(updateCart);
@@ -363,7 +364,7 @@ function loadProducts() {
 
 	$.each(products,function(index,object){																	// Iterates through products
 
-		if(object.Category == "CPU"){																		// If a product is a CPU, it adds a product tile to the window
+		if(object.Category == pageCategory){																		// If a product is a CPU, it adds a product tile to the window
 
 			output =  '<div class="product" id="p' + object.ProductID +'">';
 			output += 	'<div class="product-image">';
