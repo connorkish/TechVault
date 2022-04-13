@@ -17,10 +17,7 @@
 	<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
-<body>
-	
-
-
+<body onLoad="ProductPageCart()">
 	<div id="page">
 		<header>
 			<div id="header-top">
@@ -88,7 +85,7 @@
 			<div id="close-cart-sidebar">X</div>
 			<p id="subtotal"></p>
 			<div id="proceed-button-container">
-				<button class="btn btn-primary" id="proceed-button">Proceed to Cart</button>
+				<button class="btn btn-primary" id="proceed-button" onclick="location.href='shopping-cart.html';">Proceed to Cart</button>
 			</div>
 		</div>
 		<div id="cart-sidebar-items"></div>
@@ -97,6 +94,7 @@
 
 
 	<script src="js/product-CPUs.js"></script>
+	<script src="js/shopping-cart.js"></script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -339,39 +339,16 @@ const products = [
     ];	
 
 const page = $("#page"),
-	  cartIcon = $("#cart"),
 	  sideCart = $("#cart-sidebar"),
 	  closeSideCartButton = $("#close-cart-sidebar"),
 	  proceed = $("#proceed-button"),
 	  updateCartButton = $("#update-cart"),
-	  sampleProduct = $("#123"),
-	  subTotal = $("#subtotal");
-
-var sideCartOn = false,
-	subtotalCost = 0.00,
-	cartQty = 0;
-
-
-var cart = [ {
-	        "ProductID": 200650,
-	        "Qty": 2,
-	        "ProductPrice": 100,
-	        "Image": "images/products/motherboard/mb2.png",
-	        "ProductName": "Gigabyte B550M DS3H"
-	    },
-	    {
-	        "ProductID": 200490,
-			"Qty": 1,
-			"ProductPrice": 140,
-	        "Image": "images/products/motherboard/mb3.png",
-	        "ProductName": "MSI MPG Z490 Gaming Plus"  
-	    }];
+	  sampleProduct = $("#123");
+var sideCartOn = false
 
 // Functions that run when the document loads
 $(document).ready(function(){
 	loadProducts();								// Calls function to load items to the page
-	loadCart();									// Calls function to load items already in the cart
-	updateCart();								// Calls funtion to update the cart total
 	toggleCart();								// Calls function to hide cart sidebar
 	cartIcon.click(toggleCart);					// Adds Click event to the cart icon
 	closeSideCartButton.click(closeSideCart);	// Adds Click event to close button on side cart
@@ -412,35 +389,6 @@ function loadProducts() {
 	})
 }
 
-
-// Loads the shopping cart when the page is loaded
-function loadCart(){
-
-	var output;																							// Local Variable to hold html
-
-	$.each(cart,function(index,object){																	// Iterates through products
-
-		output =	'<div class="cart-item" id="' + object.ProductID + '">';							// Creates html to add to the cart sidebar
-		output +=		'<div class="remove"><span>x</span></div>';
-		output +=		'<img class="cart-item-image" src="' + object.Image + '">';
-		output +=		'<p class="cart-item-name">' + object.ProductName + '</p>';
-		output +=		'<p>$<span class="price">' + object.ProductPrice + '</span>.00</p>';
-		output +=		'<input type="number" value="' + object.Qty + '" min="1">';
-		output +=	'</div>';
-
-		$("#cart-sidebar-items").append(output); 														// Adds the new html to the cart sidbar
-
-		subtotalCost += object.Price;																	// Updates the value of the cart subtotal
-		$("#" + object.ProductID).find(".remove").click({param1: object.ProductID}, removeCartItem);	// Adds click event to remove the product from the cart sidebar
-		$("#" + object.ProductID).find("input").change(updateCart);										// Adds change event to update the cart when the qty is changed																			
-	})
-
-	cartQty++;																							// Increases the cart quantity variable by 1
-	updateCartQty();																					// Calls function to update the cart quantity
-	updateCart();																						// Calls function to update the cart
-}
-
-
 // Shows and hides cart sidebar
 function toggleCart(){
 	if(sideCartOn == false){					// If the cart sidebar is not visible, make it visible
@@ -455,113 +403,12 @@ function toggleCart(){
 	}
 }
 
-
 // Hides the cart sidebar
 function closeSideCart(){
 	page.removeClass("page")
 	sideCart.css({"visibility": "hidden"});
 	sideCartOn = false;
 }
-
-
-// Removes an item from the cart sidebar
-function removeCartItem(event){
-	$("#" + event.data.param1).remove();
-	updateCart();
-}
-
-
-// Updates the user's cart
-function updateCart(){
-
-	subtotalCost = 0;														// Resets variables
-	cartQty = 0;
-
-	var newCart = [];														// Variable to hold new cart JSON data
-
-	$(".cart-item").each(function(){										// Iterates through each item in the cart sidebar
-
-		var id = $(this).attr("id");										// Varaibles representing data needed to add to cart JSON
-		var qty = parseInt($(this).find("input").val());
-		var price = $(this).find(".price").text();
-		var image = $(this).find(".cart-item-image").attr("src");
-		var name = $(this).find(".cart-item-name").val();
-
-		subtotalCost += (qty * price);										// Sets cart subtoal
-		cartQty += qty;														// Sets cart quantity
-
-		newCart.push({														// Adds to the new cart JSON array
-			"ProductID": id, 
-			"Qty": qty, 
-			"ProductPrice": price,
-			"Image": image,
-			"ProductName": name
-		}); 
-
-	});
-	
-	cart = newCart;															// Updates cart to the new cart
-
-	subTotal.html("Subtotal: $" + subtotalCost + ".00");					// Updates cart sidebar's subtotal display
-	updateCartQty();														// Calls function to update the cart icon
-
-	if(sideCartOn == false){												// If the side cart is not currently showing, show it
-		toggleCart();
-	}
-	
-}
-
-
-// Handles updating the cart quantity icon 
-function updateCartQty(){
-	if(cartQty == 0){									// If the cart is empty, hide the icon
-		$("#cart-num").css({"visibility": "hidden"});
-	}
-	else{												// Else there are items in the cart, show the icon, and udpate the value
-		$("#cart-num").css({"visibility": "visible"});
-		$("#cart-num").html(cartQty);
-	}
-}
-
-
-// Handles when an Add to Cart Button is pressed
-function addToCart(event) {
-
-	var output;																									// Local Variable to hold html
-
-	if($("#" + event.data.param1).length == 0){																	// Checks if the product is not in the cart
-		
-		$.each(products,function(index,object){																	// Iterates through products
-			
-			if(event.data.param1 == object.ProductID) {															// Checks if the current product matches the product being added
-
-				output =	'<div class="cart-item" id="' + object.ProductID + '">';							// Creates html to add to the cart sidebar
-				output +=		'<div class="remove"><span>x</span></div>';
-				output +=		'<img class="cart-item-image" src="' + object.Image + '">';
-				output +=		'<p class="cart-item-name">' + object.ProductName + '</p>';
-				output +=		'<p>$<span class="price">' + object.Price + '</span>.00</p>';
-				output +=		'<input type="number" value="1" min="1">';
-				output +=	'</div>';
-
-				$("#cart-sidebar-items").append(output); 														// Adds the new html to the cart sidbar
-
-				subtotalCost += object.Price;																	// Updates the value of the cart subtotal
-				$("#" + object.ProductID).find(".remove").click({param1: object.ProductID}, removeCartItem);	// Adds click event to remove the product from the cart sidebar
-				$("#" + object.ProductID).find("input").change(updateCart);										// Adds change event to update the cart when the qty is changed
-			}																
-		})
-	}
-	else{																										// Else, the item is already in the cart
-
-		var itemQty = parseInt($("#" + event.data.param1).find("input").val());									// Determines the current quantity
-		$("#" + event.data.param1).find("input").val(itemQty + 1);												// Increments the quantity by 1
-	}
-	
-	cartQty++;																									// Increases the cart quantity variable by 1
-	updateCartQty();																							// Calls function to update the cart quantity
-	updateCart();																								// Calls function to update the cart
-}
-
 
 // Temporary function to demonstrate that a JSON object is being updated to contain the cart
 function showCartJSON(){ console.log(cart); }
