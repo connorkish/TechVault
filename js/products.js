@@ -410,6 +410,3 @@ function closeSideCart(){
 	sideCart.css({"visibility": "hidden"});
 	sideCartOn = false;
 }
-
-// Temporary function to demonstrate that a JSON object is being updated to contain the cart
-function showCartJSON(){ console.log(cart); }

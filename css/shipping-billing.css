@@ -8,23 +8,56 @@
 /* Last Updated By: Josh Wagner */
 
 #content{
-	padding-top: 20px;
+
 	margin: auto;
 }
+
+#checkout-banner{
+	border: solid;
+	border-color: #7E0002;
+	border-width: 10px;
+	background: #4A0203;
+	color: white;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	padding:  10px;
+	margin-bottom: 20px;
+}
+
+#totals{
+	
+	margin-left: 50px;
+	float: left;
+}
+#totals label{
+
+}
+
+#totals span{
+	font-weight: normal;
+}
+
+#grand-total{
+	font-size: 26px;
+}
+#checkout-button{
+	margin-top: 40px;
+	margin-right: 50px;
+	float: right;
+}
+
 
 #details{
 	padding-left: 50px;
 }
 
-#details h2, p{ 
-	display: inline;
-	
-}
 
 #details h2 { 
 	font-size: 20px;
-	font-weight: bold; 
-	line-height: 2;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 #cancel-button{
@@ -35,6 +68,8 @@ form{
 	width: 600px;
 }
 
+
+
 .form-group{
 	margin: auto;
 }
@@ -44,15 +79,16 @@ label{
 }
 
 .form-title{
-	padding-left: 10px;
 	font-weight: bold;
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 }
 
 small{
 	color: #4A0203;
 	position:relative;
 	right: 40px;
+	padding:  0;
+	margin: 0;
 }
 
 .fa-circle-check{
@@ -138,59 +174,46 @@ small{
 	left: 150px;
 }
 
-.email-container{
+.ship-option-container{
 	height: 110px;
 	display: inline-block;
 }
 
-#ship-email{
-	width: 300px;
+#ship-option{
+	width: 250px;
 }
 
-#ship-email-pass{
-	left: 270px;
+#ship-option-pass{
+	left: 215px;
 }
 
-#ship-email-fail{
-	left: 250px;
+#ship-option-fail{
+	left: 195px;
 }
 
-#bill-email{
-	width: 300px;
-}
 
-#bill-email-pass{
-	left: 270px;
-}
 
-#bill-email-fail{
-	left: 250px;
-}
+
 
 .row2{
 	height: 100px;
 }
 
-.phone-container{
+.carrier-container{
 	display: inline-block;
 	padding-right: 25px;
 }
 
-#ship-phone{
+#ship-carrier{
 	width: 150px;
 }
 
-#ship-optional{
-	display: inline;
-	font-weight: normal;
-	font-size: 15px;
-}
-#ship-phone-pass{
-	left: 125px;
+#ship-carrier-pass{
+	left: 115px;
 }
 
-#ship-phone-fail{
-	left: 105px;
+#ship-carrier-fail{
+	left: 95px;
 }
 
 #bill-phone{
@@ -248,7 +271,7 @@ small{
 }
 
 #ship-city{
-	width: 150px;
+	width: 170px;
 }
 
 #ship-city-pass{
@@ -272,12 +295,14 @@ small{
 }
 
 .state-container{
-	padding-left: 20px;
+	padding-left: 10px;
 	display: inline-block;
 }
 
 #ship-state{
 	width: 150px;
+	padding-right: 0;
+	margin-right: 0;
 }
 
 #ship-state-pass{
@@ -301,7 +326,7 @@ small{
 }
 
 .zip-container{
-	padding-left: 20px;
+	padding-left: 10px;
 	display: inline-block;
 }
 
@@ -334,6 +359,57 @@ small{
 	padding-top: 10px;
 }
 
+.card-number-container{
+	display: inline-block;
+}
+#card-number{
+	width: 200px;
+}
+
+#card-number-pass{
+	left: 170px;
+}
+
+#card-number-fail{
+	left:  150px;
+}
+
+
+.card-cvv-container{
+	display: inline-block;
+	padding-left: 30px;
+}
+
+#card-cvv{
+	width: 80px;
+}
+
+#card-cvv-pass{
+	left: 50px;
+}
+
+#card-cvv-fail{
+	left: 30px;
+}
+
+.card-exp-container{
+	display: inline-block;
+	
+}
+
+#card-exp{
+	width: 180px;
+}
+
+#card-exp-pass{
+	left: 130px;
+}
+
+#card-exp-fail{
+	left: 110px;
+}
+
+
 #form-result{
 	vertical-align: bottom;
 	font-size: 30px;
@@ -350,4 +426,8 @@ small{
 #billcheckbox{
 	padding-top: 10px;
 	padding-bottom: 20px;
+}
+
+#success{
+	text-align: center;
 }

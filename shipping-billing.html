@@ -16,6 +16,7 @@
 		<link href="css/main.css" rel="stylesheet" type="text/css">
 		<link href="css/shipping-billing.css" rel="stylesheet" type="text/css">
 		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<title>Shipping and Billing Details - Tech Vault</title>
 	</head>
 	<body>
@@ -26,10 +27,14 @@
 				</div>
 				<div id="header-right">
 					<a href="account-details.html" id="account">Hello John</a>
-					<a href="#"><img id="cart-icon" src="images/cart.png" alt="Shopping Cart Icon">Cart</a>
+					<div id="cart">
+						<span>Cart</span>
+						<i class="fa-solid fa-cart-flatbed"></i>
+						<div id="cart-num"></div>
+					</div>
 					<div id="search-container">
 						<input type="text" id="search" value="search">
-				  </div>
+					</div>
 			  </div>
 			</div>
 		</header>		
@@ -43,263 +48,296 @@
 				<li><a href="#">Cases</a></li>
 			</ul>
 		</nav>
-
+		
 		<div id="content">
-			
-			<div id="details">
-			  <div id="shipping">	
-				<h1 class="form-title">Shipping Details</h1>
-				  <div class="row1">
-					 <div class="form-group offset-md-0 offset-sm-0 offset-xl-0 fname-container">
-					<label for="fname">First Name</label>
-						<input type="text" class="form-control" id="ship-fname" placeholder="John" onfocus="selectField(0)" onblur="unselectField(0)">
-						<i class="fa-solid fa-circle-check" id="ship-fname-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-fname-fail"></i>
-						<small class="form-feedback" id="ship-fname-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 lname-container">
-						<label for="lname">Last Name</label>
-						<input type="text" class="form-control" id="ship-lname" placeholder="Smith" onfocus="selectField(1)" onblur="unselectField(1)">
-						<i class="fa-solid fa-circle-check" id="ship-lname-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-lname-fail"></i>
-						<small class="form-feedback" id="ship-lname-feedback"></small>
-					</div>
+			<div id="checkout-banner">
+				<div id="totals">
+					<label>Subtotal: <span id="subtotal-value"></span></label><br/>
+					<label>Tax: <span id="tax-value"></span></label><br/>
+					<label>Shipping: <span id="ship-value"></span></label><br/>
+					<label id="grand-total">Total: <span id="total-value"></span></label><br/>
 				</div>
-				
-				<div class="row2">					
-				<div class="form-group offset-md-0 offset-xl-0 street-address-container">
-			    	<label for="street-address">Street Address</label>
-			    	<input type="text" class="form-control" id="ship-street-address" placeholder="10 Cherry Lane" onfocus="selectField(5)" onblur="unselectField(5)">
-					<i class="fa-solid fa-circle-check" id="ship-street-pass"></i>
-					<i class="fa-solid fa-circle-xmark" id="ship-street-fail"></i>
-					<small class="form-feedback" id="ship-street-feedback"></small>
-			  	</div>
+				<div id="checkout-button">
+					<button class="btn btn-primary" id="top-checkout-button" onClick="validate()">Place Order</button>
+					<h2 id="form-result-top"></h2>
 				</div>
-				<div class="row3">
-					<div class="form-group offset-md-0 offset-xl-0 city-container">
-						<label for="city">City</label>
-						<input type="text" class="form-control" id="ship-city" placeholder="City" onfocus="selectField(6)" onblur="unselectField(6)">
-						<i class="fa-solid fa-circle-check" id="ship-city-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-city-fail"></i>
-						<small class="form-feedback" id="ship-city-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-xl-0 state-container">
-						<label for="state" >State</label>
-						<select name="state" class="form-control" id="ship-state" onfocus="selectField(7)" onblur="unselectField(7)">
-							<option value="">- Select -</option>
-							<option value="AL">AL</option>
-							<option value="AK">AK</option>
-							<option value="AZ">AZ</option>
-							<option value="AR">AR</option>
-							<option value="CA">CA</option>
-							<option value="CO">CO</option>
-							<option value="CT">CT</option>
-							<option value="DE">DE</option>
-							<option value="DC">DC</option>
-							<option value="GA">GA</option>
-							<option value="HI">HI</option>
-							<option value="ID">ID</option>
-							<option value="IL">IL</option>
-							<option value="IN">IN</option>
-							<option value="IA">IA</option>
-							<option value="KS">KS</option>
-							<option value="KY">KY</option>
-							<option value="LA">LA</option>
-							<option value="ME">ME</option>
-							<option value="MD">MD</option>
-							<option value="MA">MA</option>
-							<option value="MI">MI</option>
-							<option value="MN">MN</option>
-							<option value="MS">MS</option>
-							<option value="MO">MO</option>
-							<option value="MT">MT</option>
-							<option value="NE">NE</option>
-							<option value="NV">NV</option>
-							<option value="NH">NH</option>
-							<option value="NJ">NJ</option>
-							<option value="NM">NM</option>
-							<option value="NY">NY</option>
-							<option value="NC">NC</option>
-							<option value="ND">ND</option>
-							<option value="OH">OH</option>
-							<option value="OK">OK</option>
-							<option value="OR">OR</option>
-							<option value="PA">PA</option>
-							<option value="RI">RI</option>
-							<option value="SC">SC</option>
-							<option value="SD">SD</option>
-							<option value="TN">TN</option>
-							<option value="TX">TX</option>
-							<option value="UT">UT</option>
-							<option value="VT">VT</option>
-							<option value="VA">VA</option>
-							<option value="WA">WA</option>
-							<option value="WV">WV</option>
-							<option value="WI">WI</option>
-							<option value="WY">WY</option>
-						</select>
-						<i class="fa-solid fa-circle-check" id="ship-state-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-state-fail"></i>
-						<small class="form-feedback" id="ship-state-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-xl-0 zip-container">
-						<label for="zip">Zip Code</label>
-						<input type="text" class="form-control" id="ship-zip" placeholder="12345" maxlength="5" onfocus="selectField(8)" onblur="unselectField(8)">
-						<i class="fa-solid fa-circle-check" id="ship-zip-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-zip-fail"></i>
-						<small class="form-feedback" id="ship-zip-feedback"></small>
-					</div>
-				  </div>
-				  <div class="row4">
-						<div class="form-group offset-md-0 offset-xl-0 phone-container">
-						<label for="phone">Phone Number<section id="ship-optional"> (Optional)</section></label>
-						<input type="tel" class="form-control" id="ship-phone" placeholder="800-555-5555"  onfocus="selectField(3)" onblur="unselectField(3)">
-						<i class="fa-solid fa-circle-check" id="ship-phone-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-phone-fail"></i>
-						<small class="form-feedback" id="ship-phone-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-xl-0 email-container">
-			    		<label for="email">Email Address</label>
-			    		<input type="email" class="form-control" id="ship-email" placeholder="example@something.com" onfocus="selectField(2)" onblur="unselectField(2)">
-						<i class="fa-solid fa-circle-check" id="ship-email-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="ship-email-fail"></i>
-						<small class="form-feedback" id="ship-email-feedback"></small>
-			  		</div>
-				  </div>
-				</div>
-				<div id="billing">
-					<h1 class="form-title">Billing Details</h1>
-					<div id="billcheckbox">
-						<input type="checkbox">
-						<label>Same as Shipping</label>
-					</div>
-				<div class="row1">
-					 <div class="form-group offset-md-0 offset-sm-0 offset-xl-0 fname-container">
-					<label for="fname">First Name</label>
-						<input type="text" class="form-control" id="bill-fname" placeholder="John" onfocus="selectField(0)" onblur="unselectField(0)">
-						<i class="fa-solid fa-circle-check" id="bill-fname-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-fname-fail"></i>
-						<small class="form-feedback" id="bill-fname-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 lname-container">
-						<label for="lname">Last Name</label>
-						<input type="text" class="form-control" id="bill-lname" placeholder="Smith" onfocus="selectField(1)" onblur="unselectField(1)">
-						<i class="fa-solid fa-circle-check" id="bill-lname-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-lname-fail"></i>
-						<small class="form-feedback" id="bill-lname-feedback"></small>
-					</div>
-				</div>
-				
-				<div class="row2">					
-				<div class="form-group offset-md-0 offset-xl-0 street-address-container">
-			    	<label for="street-address">Street Address</label>
-			    	<input type="text" class="form-control" id="bill-street-address" placeholder="10 Cherry Lane" onfocus="selectField(5)" onblur="unselectField(5)">
-					<i class="fa-solid fa-circle-check" id="bill-street-pass"></i>
-					<i class="fa-solid fa-circle-xmark" id="bill-street-fail"></i>
-					<small class="form-feedback" id="bill-street-feedback"></small>
-			  	</div>
-				</div>
-				<div class="row3">
-					<div class="form-group offset-md-0 offset-xl-0 city-container">
-						<label for="city">City</label>
-						<input type="text" class="form-control" id="bill-city" placeholder="City" onfocus="selectField(6)" onblur="unselectField(6)">
-						<i class="fa-solid fa-circle-check" id="bill-city-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-city-fail"></i>
-						<small class="form-feedback" id="bill-city-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-xl-0 state-container">
-						<label for="state" >State</label>
-						<select name="state" class="form-control" id="bill-state" onfocus="selectField(7)" onblur="unselectField(7)">
-							<option value="">- Select -</option>
-							<option value="AL">AL</option>
-							<option value="AK">AK</option>
-							<option value="AZ">AZ</option>
-							<option value="AR">AR</option>
-							<option value="CA">CA</option>
-							<option value="CO">CO</option>
-							<option value="CT">CT</option>
-							<option value="DE">DE</option>
-							<option value="DC">DC</option>
-							<option value="GA">GA</option>
-							<option value="HI">HI</option>
-							<option value="ID">ID</option>
-							<option value="IL">IL</option>
-							<option value="IN">IN</option>
-							<option value="IA">IA</option>
-							<option value="KS">KS</option>
-							<option value="KY">KY</option>
-							<option value="LA">LA</option>
-							<option value="ME">ME</option>
-							<option value="MD">MD</option>
-							<option value="MA">MA</option>
-							<option value="MI">MI</option>
-							<option value="MN">MN</option>
-							<option value="MS">MS</option>
-							<option value="MO">MO</option>
-							<option value="MT">MT</option>
-							<option value="NE">NE</option>
-							<option value="NV">NV</option>
-							<option value="NH">NH</option>
-							<option value="NJ">NJ</option>
-							<option value="NM">NM</option>
-							<option value="NY">NY</option>
-							<option value="NC">NC</option>
-							<option value="ND">ND</option>
-							<option value="OH">OH</option>
-							<option value="OK">OK</option>
-							<option value="OR">OR</option>
-							<option value="PA">PA</option>
-							<option value="RI">RI</option>
-							<option value="SC">SC</option>
-							<option value="SD">SD</option>
-							<option value="TN">TN</option>
-							<option value="TX">TX</option>
-							<option value="UT">UT</option>
-							<option value="VT">VT</option>
-							<option value="VA">VA</option>
-							<option value="WA">WA</option>
-							<option value="WV">WV</option>
-							<option value="WI">WI</option>
-							<option value="WY">WY</option>
-						</select>
-						<i class="fa-solid fa-circle-check" id="bill-state-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-state-fail"></i>
-						<small class="form-feedback" id="bill-state-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-xl-0 zip-container">
-						<label for="zip">Zip Code</label>
-						<input type="text" class="form-control" id="bill-zip" placeholder="12345" maxlength="5" onfocus="selectField(8)" onblur="unselectField(8)">
-						<i class="fa-solid fa-circle-check" id="bill-zip-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-zip-fail"></i>
-						<small class="form-feedback" id="bill-zip-feedback"></small>
-					</div>
-				  </div>
-				  <div class="row4">
-						<div class="form-group offset-md-0 offset-xl-0 phone-container">
-						<label for="phone">Phone Number<section id="bill-optional"> (Optional)</section></label>
-						<input type="tel" class="form-control" id="bill-phone" placeholder="800-555-5555"  onfocus="selectField(3)" onblur="unselectField(3)">
-						<i class="fa-solid fa-circle-check" id="bill-phone-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-phone-fail"></i>
-						<small class="form-feedback" id="bill-phone-feedback"></small>
-					</div>
-					<div class="form-group offset-md-0 offset-xl-0 email-container">
-			    		<label for="email">Email Address</label>
-			    		<input type="email" class="form-control" id="bill-email" placeholder="example@something.com" onfocus="selectField(2)" onblur="unselectField(2)">
-						<i class="fa-solid fa-circle-check" id="bill-email-pass"></i>
-						<i class="fa-solid fa-circle-xmark" id="bill-email-fail"></i>
-						<small class="form-feedback" id="bill-email-feedback"></small>
-			  		</div>
-				  </div>
-				</div>
-				 <div class="offset-md-0 offset-lg-0" id="form-buttons">
-				 	<button type="submit" class="btn btn-primary" id="update-info-button" onClick="checkInputs()">Submit</button>
-					<button class="btn btn-primary" id="cancel-button" onClick="displayAccountDetails()">Cancel</button>
-				 	<h2 id="form-result"></h2>
-          		  </div>
 			</div>
 			<form class="form-group col-md-0 offset-lg-0 was-valid" id="account-form" onSubmit="return false">
+				<div id="details">
+					<div id="shipping">	
+						<h1 class="form-title">Shipping Details</h1>
+						<h2 class="form-subtitle">Address</h2>
+						<div class="row1">
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 fname-container">
+								<label for="ship-fname">First Name</label>
+								<input type="text" class="form-control" id="ship-fname" placeholder="John">
+								<i class="fa-solid fa-circle-check" id="ship-fname-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-fname-fail"></i>
+								<small class="form-feedback" id="ship-fname-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 lname-container">
+								<label for="lname">Last Name</label>
+								<input type="text" class="form-control" id="ship-lname" placeholder="Smith">
+								<i class="fa-solid fa-circle-check" id="ship-lname-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-lname-fail"></i>
+								<small class="form-feedback" id="ship-lname-feedback"></small>
+							</div>
+						</div>
+						<div class="row2">					
+							<div class="form-group offset-md-0 offset-xl-0 street-address-container">
+								<label for="street-address">Street Address</label>
+								<input type="text" class="form-control" id="ship-street-address" placeholder="10 Cherry Lane">
+								<i class="fa-solid fa-circle-check" id="ship-street-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-street-fail"></i>
+								<small class="form-feedback" id="ship-street-feedback"></small>
+							</div>
+						</div>
+						<div class="row3">
+							<div class="form-group offset-md-0 offset-xl-0 city-container">
+								<label for="city">City</label>
+								<input type="text" class="form-control" id="ship-city" placeholder="City">
+								<i class="fa-solid fa-circle-check" id="ship-city-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-city-fail"></i>
+								<small class="form-feedback" id="ship-city-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-xl-0 state-container">
+								<label for="state" >State</label>
+								<select name="state" class="form-control" id="ship-state">
+									<option value="">- Select -</option>
+									<option value="AL">AL</option>
+									<option value="AK">AK</option>
+									<option value="AZ">AZ</option>
+									<option value="AR">AR</option>
+									<option value="CA">CA</option>
+									<option value="CO">CO</option>
+									<option value="CT">CT</option>
+									<option value="DE">DE</option>
+									<option value="DC">DC</option>
+									<option value="GA">GA</option>
+									<option value="HI">HI</option>
+									<option value="ID">ID</option>
+									<option value="IL">IL</option>
+									<option value="IN">IN</option>
+									<option value="IA">IA</option>
+									<option value="KS">KS</option>
+									<option value="KY">KY</option>
+									<option value="LA">LA</option>
+									<option value="ME">ME</option>
+									<option value="MD">MD</option>
+									<option value="MA">MA</option>
+									<option value="MI">MI</option>
+									<option value="MN">MN</option>
+									<option value="MS">MS</option>
+									<option value="MO">MO</option>
+									<option value="MT">MT</option>
+									<option value="NE">NE</option>
+									<option value="NV">NV</option>
+									<option value="NH">NH</option>
+									<option value="NJ">NJ</option>
+									<option value="NM">NM</option>
+									<option value="NY">NY</option>
+									<option value="NC">NC</option>
+									<option value="ND">ND</option>
+									<option value="OH">OH</option>
+									<option value="OK">OK</option>
+									<option value="OR">OR</option>
+									<option value="PA">PA</option>
+									<option value="RI">RI</option>
+									<option value="SC">SC</option>
+									<option value="SD">SD</option>
+									<option value="TN">TN</option>
+									<option value="TX">TX</option>
+									<option value="UT">UT</option>
+									<option value="VT">VT</option>
+									<option value="VA">VA</option>
+									<option value="WA">WA</option>
+									<option value="WV">WV</option>
+									<option value="WI">WI</option>
+									<option value="WY">WY</option>
+								</select>
+								<i class="fa-solid fa-circle-check" id="ship-state-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-state-fail"></i>
+								<small class="form-feedback" id="ship-state-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-xl-0 zip-container">
+								<label for="zip">Zip Code</label>
+								<input type="text" class="form-control" id="ship-zip" placeholder="12345" maxlength="5">
+								<i class="fa-solid fa-circle-check" id="ship-zip-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-zip-fail"></i>
+								<small class="form-feedback" id="ship-zip-feedback"></small>
+							</div>
+						</div>
+						<h2 class="form-subtitle">Method</h2>
+						<div class="row4">
+							<div class="form-group offset-md-0 offset-xl-0 carrier-container">
+								<label for="carrier">Carrier</label>
+								<select name="carrier" class="form-control" id="ship-carrier">
+									<option value="">- Select -</option>
+									<option value="USPS">USPS</option>
+									<option value="FedEx">FedEx</option>
+									<option value="UPS">UPS</option>
+									<option value="DHL">DHL</option>	
+								</select>
+								<i class="fa-solid fa-circle-check" id="ship-carrier-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-carrier-fail"></i>
+								<small class="form-feedback" id="ship-carrier-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-xl-0 ship-option-container">
+								<label for="option">Option</label>
+								<select name="option" class="form-control" id="ship-option" onchange="updateShipping()">
+									<option value="">- Select -</option>
+									<option value="1">Standard Shipping</option>
+									<option value="2">Same Week Shipping +$15</option>
+									<option value="3">Express Shipping +$25</option>
+									<option value="4">Same Day Shipping +$50</option>	
+								</select>
+								<i class="fa-solid fa-circle-check" id="ship-option-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="ship-option-fail"></i>
+								<small class="form-feedback" id="ship-option-feedback"></small>
+							</div>
+						</div>
+					</div>
+					<div id="billing">
+						<h1 class="form-title">Billing Details</h1>
+						<h2 class="form-subtitle">Credit/Debit Card</h2>
+						<div class="row1">
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 card-number-container">
+								<label for="card-number">Card Number</label>
+								<input type="text" class="form-control" id="card-number" placeholder="xxxx xxxx xxxx xxxx">
+								<i class="fa-solid fa-circle-check" id="card-number-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="card-number-fail"></i>
+								<small class="form-feedback" id="card-number-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 card-cvv-container">
+								<label for="card-cvv">CVV Number</label>
+								<input type="text" class="form-control" id="card-cvv" placeholder="xxx" maxlength="4">
+								<i class="fa-solid fa-circle-check" id="card-cvv-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="card-cvv-fail"></i>
+								<small class="form-feedback" id="card-cvv-feedback"></small>
+							</div>
+						</div>
+						<div class="row2">
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 card-exp-container">
+								<label for="card-exp">Expiration Date</label>
+								<input type="date"  class="form-control" id="card-exp">
+								<i class="fa-solid fa-circle-check" id="card-exp-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="card-exp-fail"></i>
+								<small class="form-feedback" id="card-exp-feedback">Test</small>
+							</div>
+						</div>
+						<h2 class="form-subtitle">Address</h2>
+						<div id="billcheckbox">
+							<input type="checkbox" id="same-ship" onclick="applyShippingToBilling()">
+							<label>Same as Shipping</label>
+						</div>
+						<div class="row1">
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 fname-container">
+								<label for="fname">First Name</label>
+								<input type="text" class="form-control" id="bill-fname" placeholder="John">
+								<i class="fa-solid fa-circle-check" id="bill-fname-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="bill-fname-fail"></i>
+								<small class="form-feedback" id="bill-fname-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 lname-container">
+								<label for="lname">Last Name</label>
+								<input type="text" class="form-control" id="bill-lname" placeholder="Smith">
+								<i class="fa-solid fa-circle-check" id="bill-lname-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="bill-lname-fail"></i>
+								<small class="form-feedback" id="bill-lname-feedback"></small>
+							</div>
+						</div>
+						<div class="row2">					
+							<div class="form-group offset-md-0 offset-xl-0 street-address-container">
+								<label for="street-address">Street Address</label>
+								<input type="text" class="form-control" id="bill-street-address" placeholder="10 Cherry Lane">
+								<i class="fa-solid fa-circle-check" id="bill-street-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="bill-street-fail"></i>
+								<small class="form-feedback" id="bill-street-feedback"></small>
+							</div>
+						</div>
+						<div class="row3">
+							<div class="form-group offset-md-0 offset-xl-0 city-container">
+								<label for="city">City</label>
+								<input type="text" class="form-control" id="bill-city" placeholder="City">
+								<i class="fa-solid fa-circle-check" id="bill-city-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="bill-city-fail"></i>
+								<small class="form-feedback" id="bill-city-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-xl-0 state-container">
+								<label for="state" >State</label>
+								<select name="state" class="form-control" id="bill-state">
+									<option value="">- Select -</option>
+									<option value="AL">AL</option>
+									<option value="AK">AK</option>
+									<option value="AZ">AZ</option>
+									<option value="AR">AR</option>
+									<option value="CA">CA</option>
+									<option value="CO">CO</option>
+									<option value="CT">CT</option>
+									<option value="DE">DE</option>
+									<option value="DC">DC</option>
+									<option value="GA">GA</option>
+									<option value="HI">HI</option>
+									<option value="ID">ID</option>
+									<option value="IL">IL</option>
+									<option value="IN">IN</option>
+									<option value="IA">IA</option>
+									<option value="KS">KS</option>
+									<option value="KY">KY</option>
+									<option value="LA">LA</option>
+									<option value="ME">ME</option>
+									<option value="MD">MD</option>
+									<option value="MA">MA</option>
+									<option value="MI">MI</option>
+									<option value="MN">MN</option>
+									<option value="MS">MS</option>
+									<option value="MO">MO</option>
+									<option value="MT">MT</option>
+									<option value="NE">NE</option>
+									<option value="NV">NV</option>
+									<option value="NH">NH</option>
+									<option value="NJ">NJ</option>
+									<option value="NM">NM</option>
+									<option value="NY">NY</option>
+									<option value="NC">NC</option>
+									<option value="ND">ND</option>
+									<option value="OH">OH</option>
+									<option value="OK">OK</option>
+									<option value="OR">OR</option>
+									<option value="PA">PA</option>
+									<option value="RI">RI</option>
+									<option value="SC">SC</option>
+									<option value="SD">SD</option>
+									<option value="TN">TN</option>
+									<option value="TX">TX</option>
+									<option value="UT">UT</option>
+									<option value="VT">VT</option>
+									<option value="VA">VA</option>
+									<option value="WA">WA</option>
+									<option value="WV">WV</option>
+									<option value="WI">WI</option>
+									<option value="WY">WY</option>
+								</select>
+								<i class="fa-solid fa-circle-check" id="bill-state-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="bill-state-fail"></i>
+								<small class="form-feedback" id="bill-state-feedback"></small>
+							</div>
+							<div class="form-group offset-md-0 offset-xl-0 zip-container">
+								<label for="zip">Zip Code</label>
+								<input type="text" class="form-control" id="bill-zip" placeholder="12345" maxlength="5">
+								<i class="fa-solid fa-circle-check" id="bill-zip-pass"></i>
+								<i class="fa-solid fa-circle-xmark" id="bill-zip-fail"></i>
+								<small class="form-feedback" id="bill-zip-feedback"></small>
+							</div>
+						</div>
+					</div>
+					<div class="offset-md-0 offset-lg-0" id="form-buttons">
+						<button class="btn btn-primary" id="bottom-checkout-button" onclick="validate()">Place Order</button>
+						<h2 id="form-result-bottom"></h2>
+					</div>
+				</div>
 			</form>
-        </div>
+		</div>
 
 		<footer>
 			<div id="footer-links">
@@ -324,7 +362,7 @@
 	  	    </div>
 		</footer>
 		<!-- Validation JavaScript -->
-		
+		<script src="js/shipping-billing.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 		<script src="js/jquery-3.4.1.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
