@@ -217,38 +217,3 @@ footer li{
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
-/* HOMEPAGE STYLING */
-
-#saveupto{
-	width: 275px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	float: left;
-	background-color: white;
-	padding-right: 25px;
-	max-height: 250px;
-	min-height: 250px;
-}
-
-#todaypopularpicks{
-	width: 500px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	float: right;
-	background-color: white;
-	max-height: 250px;
-	min-height: 250px;
-}
-
-#mainpagecontainer{
-	min-height: auto;
-	padding-top: 15px;
-}
-
-#carousel{
-	padding-top: 15px;
-	padding-bottom: 15px;
-}

@@ -169,7 +169,7 @@ const products = [
 	        "Quantity": 25,
 	        "Price": 65,
 	        "Weight": 3,
-	        "Image": "images/products/memory.png"
+	        "Image": "images/products/storage.png"
 	    },
 	    {
 	        "ProductName": "KingSpec 2.5\" 120GB SATA III SSD",
