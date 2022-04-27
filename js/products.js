@@ -371,7 +371,7 @@ function loadProducts() {
 			output +=		'<img src="' + object.Image + '">';
 			output +=	'</div>';
 			output += 	'<div class="product-details">';
-			output += 		'<p class="product-name">NAME: ' + object.ProductName + '</p>';
+			output += 		'<p class="product-name">'+ object.ProductName + '</p>';
 			output +=		'<p>' + object.Description + '</p>';			
 			output += 	'</div>';
 			output += 	'<div class="product-price">';
