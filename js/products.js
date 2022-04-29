@@ -136,7 +136,7 @@ const products = [
 	        "Quantity": 5,
 	        "Price": 275,
 	        "Weight": 2,
-	        "Image": "images/products/memory.png"
+	        "Image": "images/products/memory/memory3.jpg"
 	    },
 	    {
 	        "ProductName": "G.SKILL Ripjaws V Series 16GB DDR4 SDRAM",
@@ -147,7 +147,7 @@ const products = [
 	        "Quantity": 6,
 	        "Price": 64,
 	        "Weight": 0.8,
-	        "Image": "images/products/memory.png"
+	        "Image": "images/products/memory/memory2.jpg"
 	    },
 	    {
 	        "ProductName": "Oloy 32GB DDR4 SDRAM",
@@ -158,7 +158,7 @@ const products = [
 	        "Quantity": 15,
 	        "Price": 140,
 	        "Weight": 0.9,
-	        "Image": "images/products/memory.png"
+	        "Image": "images/products/memory/memory1.jpg"
 	    },
 	    {
 	        "ProductName": "Samsung 870 EVO Series 2.5\" 500GB SATA III SSD",
@@ -169,7 +169,7 @@ const products = [
 	        "Quantity": 25,
 	        "Price": 65,
 	        "Weight": 3,
-	        "Image": "images/products/storage.png"
+	        "Image": "images/products/storage/storage3.jpg"
 	    },
 	    {
 	        "ProductName": "KingSpec 2.5\" 120GB SATA III SSD",
@@ -180,7 +180,7 @@ const products = [
 	        "Quantity": 20,
 	        "Price": 25,
 	        "Weight": 1.5,
-	        "Image": "images/products/storage.png"
+	        "Image": "images/products/storage/storage2.jpg"
 	    },
 	    {
 	        "ProductName": "Samsung 980 M.2 2280 1TB NVMe SSD",
@@ -191,7 +191,7 @@ const products = [
 	        "Quantity": 22,
 	        "Price": 102,
 	        "Weight": 1.7,
-	        "Image": "images/products/storage.png"
+	        "Image": "images/products/storage/storage1.jpg"
 	    },
 	    {
 	        "ProductName": "Silicon Power M.2 2280 256GB NVMe SSD",
@@ -202,7 +202,7 @@ const products = [
 	        "Quantity": 30,
 	        "Price": 32,
 	        "Weight": 1.7,
-	        "Image": "images/products/storage.png"
+	        "Image": "images/products/storage/storage4.jpg"
 	    },
 	    {
 	        "ProductName": "Silicon Power M.2 2280 1TB NVMe SSD",
@@ -213,7 +213,7 @@ const products = [
 	        "Quantity": 20,
 	        "Price": 75,
 	        "Weight": 1.3,
-	        "Image": "images/products/storage.png"
+	        "Image": "images/products/storage/storage5.jpg"
 	    },
 	    {
 	        "ProductName": "Seagate BarraCuda 3.5\" 2TB 7200 RPM HDD",
@@ -246,7 +246,7 @@ const products = [
 	        "Quantity": 15,
 	        "Price": 65,
 	        "Weight": 88,
-	        "Image": "images/products/power.png"
+	        "Image": "images/products/power/power3.jpg"
 	    },
 	    {
 	        "ProductName": "Corsair SF450 450W Micro ATX Full Modular Power Supply",
@@ -257,7 +257,7 @@ const products = [
 	        "Quantity": 30,
 	        "Price": 80,
 	        "Weight": 30.4,
-	        "Image": "images/products/power.png"
+	        "Image": "images/products/power/power4.jpg"
 	    },
 	    {
 	        "ProductName": "Corsair SF600 600W Micro ATX Full Modular Power Supply",
@@ -268,7 +268,7 @@ const products = [
 	        "Quantity": 15,
 	        "Price": 100,
 	        "Weight": 31.2,
-	        "Image": "images/products/power.png"
+	        "Image": "images/products/power/power2.jpg"
 	    },
 	    {
 	        "ProductName": "Rosewill Glacier Series 850W ATX Single 12V Rail",
@@ -279,7 +279,7 @@ const products = [
 	        "Quantity": 5,
 	        "Price": 75,
 	        "Weight": 88.48,
-	        "Image": "images/products/power.png"
+	        "Image": "images/products/power/power1.jpg"
 	    },
 	    {
 	        "ProductName": "Corsair 4000D Mid-Tower ATX Case",
@@ -301,7 +301,7 @@ const products = [
 	        "Quantity": 22,
 	        "Price": 110,
 	        "Weight": 270.1,
-	        "Image": "images/products/case.png"
+	        "Image": "images/products/case/case4.jpg"
 	    },
 	    {
 	        "ProductName": "NZXT H510 Flow Mid-Tower ATX Case",
@@ -312,7 +312,7 @@ const products = [
 	        "Quantity": 12,
 	        "Price": 95,
 	        "Weight": 280.5,
-	        "Image": "images/products/case.png"
+	        "Image": "images/products/case/case3.jpg"
 	    },
 	    {
 	        "ProductName": "Cooler Master MasterBox Q300L Micro-ATX Case",
@@ -323,7 +323,7 @@ const products = [
 	        "Quantity": 18,
 	        "Price": 50,
 	        "Weight": 16.9,
-	        "Image": "images/products/case.png"
+	        "Image": "images/products/case/case2.jpg"
 	    },
 	    {
 	        "ProductName": "Corsair Carbide 88R Micro-ATX Case",
@@ -334,7 +334,7 @@ const products = [
 	        "Quantity": 8,
 	        "Price": 60,
 	        "Weight": 126.2,
-	        "Image": "images/products/case.png"
+	        "Image": "images/products/case/case1.jpg"
 	    }
     ];	
 
