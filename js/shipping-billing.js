@@ -5,30 +5,6 @@
 // Last Updated: 3/9/22
 // Last Updated By: Josh Wagner    
 
-/*
-// Constant to represent an element that displays submission results
-const result = document.getElementById("form-result");
-
-// Constants to represent each form input field
-const fName = document.getElementById("fname");
-const lName = document.getElementById("lname");
-const email = document.getElementById("email");
-const pass1 = document.getElementById("password1");
-const pass2 = document.getElementById("password2");
-
-// Constants to represent elements that display feedback about submission errors for each input field
-const fNameFeedback = document.getElementById("fname-feedback");
-const lNameFeedback = document.getElementById("lname-feedback");
-const emailFeedback = document.getElementById("email-feedback");
-const pass1Feedback = document.getElementById("password1-feedback");
-const pass2Feedback = document.getElementById("password2-feedback");
-
-// Array Constants
-const validField = []; // Used to track if uesr input in each field is valid
-const fields = [fName, lName, email, pass1, pass2] // Contains each inputfield
-const fieldFeedback = [fNameFeedback, lNameFeedback, emailFeedback, pass1Feedback, pass2Feedback] // Contains each feedback element
-
-*/
 
 // Input fields
 const sFName = $("#ship-fname"),
@@ -112,6 +88,7 @@ $(document).ready(
 );
 
 function loadCart(){
+	cartQty = 0;
 
 	$.each(cart,function(index,object){	
 
@@ -122,10 +99,10 @@ function loadCart(){
 
 	updateTotals();
 
-	if(cartQty == 0){									// If the cart is empty, hide the icon
+	if(cartQty == 0){									
 		$("#cart-num").css({"visibility": "hidden"});
 	}
-	else{												// Else there are items in the cart, show the icon, and udpate the value
+	else{												
 		$("#cart-num").css({"visibility": "visible"});
 		$("#cart-num").html(cartQty);
 	}
@@ -244,11 +221,13 @@ function updateTotals(){
 
 
 function validate(){
+	var validationPass = true;
+	
 	$("#form-result-top").html("");
 
+
 	if (sFName.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-fname-fail").css({"visibility": "visible"});
 		$("#ship-fname-feedback").html("First Name Cannot Be Empty");
 		$("#ship-fname-pass").css({"visibility": "hidden"});
@@ -261,8 +240,7 @@ function validate(){
 
 
 	if (sLName.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-lname-fail").css({"visibility": "visible"});
 		$("#ship-lname-feedback").html("Last Name Cannot Be Empty");
 		$("#ship-lname-pass").css({"visibility": "hidden"});
@@ -275,22 +253,26 @@ function validate(){
 
 
 	if (sStreet.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-street-fail").css({"visibility": "visible"});
 		$("#ship-street-feedback").html("Street Cannot Be Empty");
 		$("#ship-street-pass").css({"visibility": "hidden"});
 	}
-	else{
+	else if( /\w+(\s\w+){2,}/.test(sStreet.val())){
 		$("#ship-street-fail").css({"visibility": "hidden"});
 		$("#ship-street-feedback").html("");
 		$("#ship-street-pass").css({"visibility": "visible"});
 	}
+	else{
+		validationPass = false;
+		$("#ship-street-fail").css({"visibility": "visible"});
+		$("#ship-street-feedback").html("Invalid Street");
+		$("#ship-street-pass").css({"visibility": "hidden"});
+	}
 
 
 	if (sCity.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-city-fail").css({"visibility": "visible"});
 		$("#ship-city-feedback").html("City Cannot Be Empty");
 		$("#ship-city-pass").css({"visibility": "hidden"});
@@ -303,8 +285,7 @@ function validate(){
 
 
 	if ($("#ship-state option:selected").val() == ""){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-state-fail").css({"visibility": "visible"});
 		$("#ship-state-feedback").html("State Must Be Selected");
 		$("#ship-state-pass").css({"visibility": "hidden"});
@@ -317,22 +298,32 @@ function validate(){
 
 
 	if (sZip.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-zip-fail").css({"visibility": "visible"});
 		$("#ship-zip-feedback").html("Zip Cannot Be Empty");
 		$("#ship-zip-pass").css({"visibility": "hidden"});
 	}
-	else{
+	else if (sZip.val().length < 5){
+		validationPass = false;
+		$("#ship-zip-fail").css({"visibility": "visible"});
+		$("#ship-zip-feedback").html("Zip Code Must Be 5 Numbers Long");
+		$("#ship-zip-pass").css({"visibility": "hidden"});
+	}
+	else if (/^[0-9]*$/.test(sZip.val())){
 		$("#ship-zip-fail").css({"visibility": "hidden"});
 		$("#ship-zip-feedback").html("");
 		$("#ship-zip-pass").css({"visibility": "visible"});
 	}
+	else{
+		validationPass = false;
+		$("#ship-zip-fail").css({"visibility": "visible"});
+		$("#ship-zip-feedback").html("Zip Code Must Be Numbers Only");
+		$("#ship-zip-pass").css({"visibility": "hidden"});
+	}
 
 
 	if ($("#ship-carrier option:selected").val() == ""){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-carrier-fail").css({"visibility": "visible"});
 		$("#ship-carrier-feedback").html("Carrier Must Be Selected");
 		$("#ship-carrier-pass").css({"visibility": "hidden"});
@@ -345,8 +336,7 @@ function validate(){
 
 
 	if ($("#ship-option option:selected").val() == ""){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#ship-option-fail").css({"visibility": "visible"});
 		$("#ship-option-feedback").html("Option Must Be Selected");
 		$("#ship-option-pass").css({"visibility": "hidden"});
@@ -357,12 +347,23 @@ function validate(){
 		$("#ship-option-pass").css({"visibility": "visible"});
 	}
 
+	var cardNumVal = "";
+
+	for( var i = 0; i < bCardNum.val().length; i++){
+		if (/\d/.test(bCardNum.val().charAt(i))){
+			cardNumVal += bCardNum.val().charAt(i)
+		}
+	}
 
 	if (bCardNum.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#card-number-fail").css({"visibility": "visible"});
 		$("#card-number-feedback").html("Card Number Cannot Be Empty");
+		$("#card-number-pass").css({"visibility": "hidden"});
+	} else if (cardNumVal.length != 16){
+		validationPass = false;
+		$("#card-number-fail").css({"visibility": "visible"});
+		$("#card-number-feedback").html("Card Number Must be 16 Numbers");
 		$("#card-number-pass").css({"visibility": "hidden"});
 	}
 	else{
@@ -373,38 +374,64 @@ function validate(){
 
 
 	if (bCVV.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#card-cvv-fail").css({"visibility": "visible"});
 		$("#card-cvv-feedback").html("CVV Number Cannot Be Empty");
 		$("#card-cvv-pass").css({"visibility": "hidden"});
 	}
-	else{
+	else if (bCVV.val().length < 3){
+		validationPass = false;
+		$("#card-cvv-fail").css({"visibility": "visible"});
+		$("#card-cvv-feedback").html("CVV Number Must be 3 - 4 Numbers");
+		$("#card-cvv-pass").css({"visibility": "hidden"});
+	}
+	else if (/^[0-9]*$/.test(bCVV.val())){
 		$("#card-cvv-fail").css({"visibility": "hidden"});
 		$("#card-cvv-feedback").html("");
 		$("#card-cvv-pass").css({"visibility": "visible"});
 	}
+	else {
+		validationPass = false;
+		$("#card-cvv-fail").css({"visibility": "visible"});
+		$("#card-cvv-feedback").html("CVV Number May Only Contain Numbers");
+		$("#card-cvv-pass").css({"visibility": "hidden"});
+	}
+
+
+	
 
 
 	if (bExp.val().length == 0){
-		$("#form-result-top").html("Error");
-		$("#form-result-bottom").html("Error");
+		validationPass = false;
 		$("#card-exp-fail").css({"visibility": "visible"});
-		$("#card-exp-feedback").html("CVV Number Cannot Be Empty");
+		$("#card-exp-feedback").html("Expiration Date Cannot Be Empty");
 		$("#card-exp-pass").css({"visibility": "hidden"});
 	}
 	else{
-		$("#card-exp-fail").css({"visibility": "hidden"});
-		$("#card-exp-feedback").html("");
-		$("#card-exp-pass").css({"visibility": "visible"});
+
+		var today = new Date();
+		var exp = new Date(bExp.val());
+
+		if(today.getTime() > exp.getTime()){
+			validationPass = false;
+			$("#card-exp-fail").css({"visibility": "visible"});
+			$("#card-exp-feedback").html("Expiration Date Must Be After This Month");
+			$("#card-exp-pass").css({"visibility": "hidden"});
+		}
+		else{
+			$("#card-exp-fail").css({"visibility": "hidden"});
+			$("#card-exp-feedback").html("");
+			$("#card-exp-pass").css({"visibility": "visible"});
+		}
 	}
+
+
 
 
   	if(billAsShip){
 
   		if (bFName.val().length == 0){
-			$("#form-result-top").html("Error");
-			$("#form-result-bottom").html("Error");
+			validationPass = false;
 			$("#bill-fname-fail").css({"visibility": "visible"});
 			$("#bill-fname-feedback").html("First Name Cannot Be Empty");
 			$("#bill-fname-pass").css({"visibility": "hidden"});
@@ -417,8 +444,7 @@ function validate(){
 
 
 		if (bLName.val().length == 0){
-			$("#form-result-top").html("Error");
-			$("#form-result-bottom").html("Error");
+			validationPass = false;
 			$("#bill-lname-fail").css({"visibility": "visible"});
 			$("#bill-lname-feedback").html("Last Name Cannot Be Empty");
 			$("#bill-lname-pass").css({"visibility": "hidden"});
@@ -431,36 +457,39 @@ function validate(){
 
 
 		if (bStreet.val().length == 0){
-			$("#form-result-top").html("Error");
-			$("#form-result-bottom").html("Error");
+			validationPass = false;
 			$("#bill-street-fail").css({"visibility": "visible"});
 			$("#bill-street-feedback").html("Street Cannot Be Empty");
 			$("#bill-street-pass").css({"visibility": "hidden"});
 		}
-		else{
+		else if( /\w+(\s\w+){2,}/.test(bStreet.val())){
 			$("#bill-street-fail").css({"visibility": "hidden"});
 			$("#bill-street-feedback").html("");
 			$("#bill-street-pass").css({"visibility": "visible"});
 		}
+		else{
+			validationPass = false;
+			$("#bill-street-fail").css({"visibility": "visible"});
+			$("#bill-street-feedback").html("Invalid Street");
+			$("#bill-street-pass").css({"visibility": "hidden"});
+		}
 
 
 		if (bCity.val().length == 0){
-			$("#form-result-top").html("Error");
-			$("#form-result-bottom").html("Error");
+			validationPass = false;
 			$("#bill-city-fail").css({"visibility": "visible"});
 			$("#bill-city-feedback").html("City Cannot Be Empty");
 			$("#bill-city-pass").css({"visibility": "hidden"});
 		}
 		else{
-			$("#ship-city-fail").css({"visibility": "hidden"});
+			$("#bill-city-fail").css({"visibility": "hidden"});
 			$("#bill-city-feedback").html("");
 			$("#bill-city-pass").css({"visibility": "visible"});
 		}
 
 
 		if ($("#bill-state option:selected").val() == ""){
-			$("#form-result-top").html("Error");
-			$("#form-result-bottom").html("Error");
+			validationPass = false;
 			$("#bill-state-fail").css({"visibility": "visible"});
 			$("#bill-state-feedback").html("State Must Be Selected");
 			$("#bill-state-pass").css({"visibility": "hidden"});
@@ -473,24 +502,40 @@ function validate(){
 
 
 		if (bZip.val().length == 0){
-			$("#form-result-top").html("Error");
-			$("#form-result-bottom").html("Error");
+			validationPass = false;
 			$("#bill-zip-fail").css({"visibility": "visible"});
 			$("#bill-zip-feedback").html("Zip Cannot Be Empty");
 			$("#bill-zip-pass").css({"visibility": "hidden"});
 		}
-		else{
+		else if (bZip.val().length < 5){
+			validationPass = false;
+			$("#bill-zip-fail").css({"visibility": "visible"});
+			$("#bill-zip-feedback").html("Zip Cannot Be Empty");
+			$("#bill-zip-pass").css({"visibility": "hidden"});
+		}
+		else if (/^[0-9]*$/.test(sZip.val())){
 			$("#bill-zip-fail").css({"visibility": "hidden"});
 			$("#bill-zip-feedback").html("");
 			$("#bill-zip-pass").css({"visibility": "visible"});
+		}
+		else{
+			validationPass = false;
+			$("#bill-zip-fail").css({"visibility": "visible"});
+			$("#bill-zip-feedback").html("Zip Must Be Numbers Only");
+			$("#bill-zip-pass").css({"visibility": "hidden"});
 		}
 
   	}
 
 
-  	if($("#form-result-top").text() == ""){
-  		submitOrder();
-  	}
+  	if (validationPass){
+		submitOrder();
+	}
+	else{
+		$("#form-result-top").html("Oops Check Your Infomation and Try Again");
+		$("#form-result-bottom").html("Submission Error");
+	}
+
 }
 
 
@@ -534,7 +579,7 @@ function createOrderJSON(){
 						"shipping": shipping,
 						"Total": total
 					},
-					"Shipping": {														// Adds to the new cart JSON array
+					"Shipping": {														
 						"FirstName": sFName.val(), 
 						"LastName": sLName.val(), 
 						"Street": sStreet.val(),
@@ -566,7 +611,7 @@ function createOrderJSON(){
 						"shipping": shipping,
 						"Total": total
 					},
-					"Shipping": {														// Adds to the new cart JSON array
+					"Shipping": {	
 						"FirstName": sFName.val(), 
 						"LastName": sLName.val(), 
 						"Street": sStreet.val(),
@@ -590,5 +635,7 @@ function createOrderJSON(){
 				}; 
 	}	
 
+	cart = [];
+	loadCart();
 	console.log(order);
 }

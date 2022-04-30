@@ -7,10 +7,18 @@
 /* Last Updated: 3/9/22 */
 /* Last Updated By: Josh Wagner */
 
-#content{
 
-	margin: auto;
+
+#content{
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+
+	
 }
+
 
 #checkout-banner{
 	border: solid;
@@ -19,16 +27,22 @@
 	background: #4A0203;
 	color: white;
 	position: sticky;
+	right: 0;
 	top: 0;
 	z-index: 10;
-	padding:  10px;
+	padding:  20px;
 	margin-bottom: 20px;
+	float: right;
+	width: 200px;
+}
+
+#checkout-button{
+	padding-top: 20px;
+	text-align: center;
 }
 
 #totals{
 	
-	margin-left: 50px;
-	float: left;
 }
 #totals label{
 
@@ -39,17 +53,12 @@
 }
 
 #grand-total{
-	font-size: 26px;
+	font-size: 24px;
 }
-#checkout-button{
-	margin-top: 40px;
-	margin-right: 50px;
-	float: right;
-}
-
 
 #details{
 	padding-left: 50px;
+	padding-top: 20px;
 }
 
 
@@ -65,7 +74,7 @@
 }
 
 form{
-	width: 600px;
+	float: left;
 }
 
 
@@ -89,6 +98,7 @@ small{
 	right: 40px;
 	padding:  0;
 	margin: 0;
+	text-overflow: wrap;
 }
 
 .fa-circle-check{
@@ -105,14 +115,7 @@ small{
 	bottom: 30px;
 }
 
-.selected-field{
-	border-width: 5px;
-	border-color: lightblue;
-}
 
-.unselected-field{
-	border-width: 0px;
-}
 
 .row1{
 	height: 110px;
@@ -192,7 +195,14 @@ small{
 }
 
 
+.selected-field{
+	border-width: 5px;
+	border-color: lightblue;
+}
 
+.unselected-field{
+	border-width: 0px;
+}
 
 
 .row2{
@@ -318,7 +328,7 @@ small{
 }
 
 #bill-state-pass{
-	left: 110px;
+	left: 100px;
 }
 
 #bill-state-fail{
@@ -363,15 +373,15 @@ small{
 	display: inline-block;
 }
 #card-number{
-	width: 200px;
+	width: 230px;
 }
 
 #card-number-pass{
-	left: 170px;
+	left: 195px;
 }
 
 #card-number-fail{
-	left:  150px;
+	left:  175px;
 }
 
 
@@ -385,12 +395,13 @@ small{
 }
 
 #card-cvv-pass{
-	left: 50px;
+	left: 55px;
 }
 
 #card-cvv-fail{
-	left: 30px;
+	left: 35px;
 }
+
 
 .card-exp-container{
 	display: inline-block;
@@ -419,6 +430,11 @@ small{
 	display: inline;
 }
 
+
+#form-result-top{
+	font-size: 20px;
+	padding-top: 20px;
+}
 #billing{
 	padding-top: 25px;
 }

@@ -45,20 +45,19 @@
 				<li><a href="product-cases.html">Cases</a></li>
 			</ul>
 		</nav>
-		
-		<div id="content">
-			<div id="checkout-banner">
-				<div id="totals">
-					<label>Subtotal: <span id="subtotal-value"></span></label><br/>
-					<label>Tax: <span id="tax-value"></span></label><br/>
-					<label>Shipping: <span id="ship-value"></span></label><br/>
-					<label id="grand-total">Total: <span id="total-value"></span></label><br/>
-				</div>
-				<div id="checkout-button">
-					<button class="btn btn-primary" id="top-checkout-button" onClick="validate()">Place Order</button>
-					<h2 id="form-result-top"></h2>
-				</div>
+		<div id="checkout-banner">
+			<div id="totals">
+				<label>Subtotal: <span id="subtotal-value"></span></label><br/>
+				<label>Tax: <span id="tax-value"></span></label><br/>
+				<label>Shipping: <span id="ship-value"></span></label><br/>
+				<label id="grand-total">Total: <span id="total-value"></span></label><br/>
 			</div>
+			<div id="checkout-button">
+				<button class="btn btn-primary" id="top-checkout-button" onClick="validate()">Place Order</button>
+				<h2 id="form-result-top"></h2>
+			</div>
+		</div>
+		<div id="content">
 			<form class="form-group col-md-0 offset-lg-0 was-valid" id="account-form" onSubmit="return false">
 				<div id="details">
 					<div id="shipping">	
@@ -200,7 +199,7 @@
 						<div class="row1">
 							<div class="form-group offset-md-0 offset-sm-0 offset-xl-0 card-number-container">
 								<label for="card-number">Card Number</label>
-								<input type="text" class="form-control" id="card-number" placeholder="xxxx xxxx xxxx xxxx">
+								<input type="text" class="form-control" id="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19">
 								<i class="fa-solid fa-circle-check" id="card-number-pass"></i>
 								<i class="fa-solid fa-circle-xmark" id="card-number-fail"></i>
 								<small class="form-feedback" id="card-number-feedback"></small>
@@ -219,7 +218,7 @@
 								<input type="date"  class="form-control" id="card-exp">
 								<i class="fa-solid fa-circle-check" id="card-exp-pass"></i>
 								<i class="fa-solid fa-circle-xmark" id="card-exp-fail"></i>
-								<small class="form-feedback" id="card-exp-feedback">Test</small>
+								<small class="form-feedback" id="card-exp-feedback"></small>
 							</div>
 						</div>
 						<h2 class="form-subtitle">Address</h2>
@@ -327,10 +326,6 @@
 								<small class="form-feedback" id="bill-zip-feedback"></small>
 							</div>
 						</div>
-					</div>
-					<div class="offset-md-0 offset-lg-0" id="form-buttons">
-						<button class="btn btn-primary" id="bottom-checkout-button" onclick="validate()">Place Order</button>
-						<h2 id="form-result-bottom"></h2>
 					</div>
 				</div>
 			</form>
