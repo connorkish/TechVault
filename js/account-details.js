@@ -69,7 +69,8 @@ function displayAccountDetails() {
 		+ "<h2>Phone: </h2><p>" + accountDetails.phone + "</p></br>"
 		+ "<h2>Address: </h2><p>" + accountDetails.address + " " + accountDetails.city + " " + accountDetails.state  + " " + accountDetails.zip + "</p></br>"
 		+ "<h2>Age: </h2><p>" + accountDetails.age + "</p></br>"
-		+ '<button class="btn btn-primary" id="edit-button" onClick="displayAccountDetailsForm()" >Edit Details</button>';
+		+ '<button class="btn btn-primary" id="edit-button" onClick="displayAccountDetailsForm()" >Edit Details</button>'
+		+ '<a href="product-management.html"><button class="btn btn-primary" id="prod-manage">Product Management</button></a>';
 	} 
 	// Displays the Account Details with the , in Address if there is a city saved
 	else {
@@ -78,7 +79,8 @@ function displayAccountDetails() {
 		+ "<h2>Phone: </h2><p>" + accountDetails.phone + "</p></br>"
 		+ "<h2>Address: </h2><p>" + accountDetails.address + " " + accountDetails.city + ", " + accountDetails.state  + " " + accountDetails.zip + "</p></br>"
 		+ "<h2>Age: </h2><p>" + accountDetails.age + "</p></br>"
-		+ '<button class="btn btn-primary" id="edit-button" onClick="displayAccountDetailsForm()" >Edit Details</button>';
+		+ '<button class="btn btn-primary" id="edit-button" onClick="displayAccountDetailsForm()" >Edit Details</button>'
+		+ '<a href="product-management.html"><button class="btn btn-primary" id="prod-manage">Product Management</button></a>';
 	}
 }
 

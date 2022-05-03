@@ -46,6 +46,7 @@ header a{
 	margin-top: 40px;
 	padding-top: 10px;
 	padding-bottom: 5px;
+	padding-left: 35px;
 }
 
 header a:hover{
@@ -57,6 +58,16 @@ header a:hover{
 	text-align: left;
 	margin-right: 25px;
 }
+
+#login, #signup{
+	text-align: left;
+	margin-right: 15px;
+}
+
+#header-spacer{
+	width: 10px;
+}
+
 #cart{
 	cursor: pointer;
 	text-align: right;
@@ -64,6 +75,7 @@ header a:hover{
 	display: inline;
 	padding: 0;
 	margin: 0;
+	padding-left: 15px;
 }
 
 #cart-icon{
