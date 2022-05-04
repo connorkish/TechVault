@@ -1,0 +1,27 @@
+get create...
+
+var query = "http://localhost:3000/Create?";
+query += "keyNumber1=" + variableName
+query += "&variable2=" + otherVariable 
+
+$.ajax({url: query, crossDomain: true, datatype: 'json', type: 'GET'})
+.done(function (json) {
+	variableToHoldResponse = json.result;
+})
+. fail(function() {
+	alert("Error");
+});
+
+
+get read...
+
+var query = "http://localhost:3000/Read?";
+query += "keytoSearch=" + keyValue;
+
+$.ajax({url: query, crossDomain: true, datatype: 'json', type: 'GET'})
+.done(function (json) {
+	variableToHoldResponse = json.result;
+})
+. fail(function() {
+	alert("Error");
+});

@@ -1,0 +1,449 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: account-details.css */
+/* Last Updated: 3/9/22 */
+/* Last Updated By: Josh Wagner */
+
+
+
+#content{
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+
+	
+}
+
+
+#checkout-banner{
+	border: solid;
+	border-color: #7E0002;
+	border-width: 10px;
+	background: #4A0203;
+	color: white;
+	position: sticky;
+	right: 0;
+	top: 0;
+	z-index: 10;
+	padding:  20px;
+	margin-bottom: 20px;
+	float: right;
+	width: 200px;
+}
+
+#checkout-button{
+	padding-top: 20px;
+	text-align: center;
+}
+
+#totals{
+	
+}
+#totals label{
+
+}
+
+#totals span{
+	font-weight: normal;
+}
+
+#grand-total{
+	font-size: 24px;
+}
+
+#details{
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+
+#details h2 { 
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#cancel-button{
+	margin-left: 10px;
+}
+
+form{
+	float: left;
+}
+
+
+
+.form-group{
+	margin: auto;
+}
+
+label{
+	font-weight: bold;
+}
+
+.form-title{
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+small{
+	color: #4A0203;
+	position:relative;
+	right: 40px;
+	padding:  0;
+	margin: 0;
+	text-overflow: wrap;
+}
+
+.fa-circle-check{
+	color:#2d9117;;
+	visibility: hidden;
+	position: relative;
+	bottom: 30px;
+}
+
+.fa-circle-xmark{
+	color:#ff0000;
+	visibility: hidden;
+	position: relative;
+	bottom: 30px;
+}
+
+
+
+.row1{
+	height: 110px;
+}
+
+.fname-container{
+	float: left;
+}
+
+#ship-fname{
+	width: 200px;
+}
+
+#ship-fname-pass{
+	left: 170px;
+}
+
+#ship-fname-fail{
+	left: 150px;
+}
+
+#bill-fname{
+	width: 200px;
+}
+
+#bill-fname-pass{
+	left: 170px;
+}
+
+#bill-fname-fail{
+	left: 150px;
+}
+
+.lname-container{
+	padding-left: 250px;
+}
+
+#ship-lname{
+	max-width: 200px;
+}
+
+#ship-lname-pass{
+	left: 170px;
+}
+
+#ship-lname-fail{
+	left: 150px;
+}
+
+#bill-lname{
+	max-width: 200px;
+}
+
+#bill-lname-pass{
+	left: 170px;
+}
+
+#bill-lname-fail{
+	left: 150px;
+}
+
+.ship-option-container{
+	height: 110px;
+	display: inline-block;
+}
+
+#ship-option{
+	width: 250px;
+}
+
+#ship-option-pass{
+	left: 215px;
+}
+
+#ship-option-fail{
+	left: 195px;
+}
+
+
+.selected-field{
+	border-width: 5px;
+	border-color: lightblue;
+}
+
+.unselected-field{
+	border-width: 0px;
+}
+
+
+.row2{
+	height: 100px;
+}
+
+.carrier-container{
+	display: inline-block;
+	padding-right: 25px;
+}
+
+#ship-carrier{
+	width: 150px;
+}
+
+#ship-carrier-pass{
+	left: 115px;
+}
+
+#ship-carrier-fail{
+	left: 95px;
+}
+
+#bill-phone{
+	width: 150px;
+}
+
+#bill-optional{
+	display: inline;
+	font-weight: normal;
+	font-size: 15px;
+}
+#bill-phone-pass{
+	left: 125px;
+}
+
+#bill-phone-fail{
+	left: 105px;
+}
+
+.street-address-container{
+	height: 110px;
+}
+
+#ship-street-address{
+	width: 400px;
+}
+
+#ship-street-pass{
+	left: 370px;
+}
+
+#ship-street-fail{
+	left: 350px;
+}
+
+#bill-street-address{
+	width: 400px;
+}
+
+#bill-street-pass{
+	left: 370px;
+}
+
+#bill-street-fail{
+	left: 350px;
+}
+
+.row3{
+	height: 110px;
+	padding-bottom: 20px;
+}
+
+.city-container{
+	display: inline-block;
+}
+
+#ship-city{
+	width: 170px;
+}
+
+#ship-city-pass{
+	left: 120px;
+}
+
+#ship-city-fail{
+	left: 100px;
+}
+
+#bill-city{
+	width: 150px;
+}
+
+#bill-city-pass{
+	left: 120px;
+}
+
+#bill-city-fail{
+	left: 100px;
+}
+
+.state-container{
+	padding-left: 10px;
+	display: inline-block;
+}
+
+#ship-state{
+	width: 150px;
+	padding-right: 0;
+	margin-right: 0;
+}
+
+#ship-state-pass{
+	left: 110px;
+}
+
+#ship-state-fail{
+	left: 90px;
+}
+
+#bill-state{
+	width: 150px;
+}
+
+#bill-state-pass{
+	left: 100px;
+}
+
+#bill-state-fail{
+	left: 90px;
+}
+
+.zip-container{
+	padding-left: 10px;
+	display: inline-block;
+}
+
+#ship-zip{
+	width: 90px;
+}
+
+#ship-zip-pass{
+	left: 65px;
+}
+
+#ship-zip-fail{
+	left: 45px;
+}
+
+#bill-zip{
+	width: 90px;
+}
+
+#bill-zip-pass{
+	left: 65px;
+}
+
+#bill-zip-fail{
+	left: 45px;
+}
+
+#form-buttons{
+	display: block;
+	padding-top: 10px;
+}
+
+.card-number-container{
+	display: inline-block;
+}
+#card-number{
+	width: 230px;
+}
+
+#card-number-pass{
+	left: 195px;
+}
+
+#card-number-fail{
+	left:  175px;
+}
+
+
+.card-cvv-container{
+	display: inline-block;
+	padding-left: 30px;
+}
+
+#card-cvv{
+	width: 80px;
+}
+
+#card-cvv-pass{
+	left: 55px;
+}
+
+#card-cvv-fail{
+	left: 35px;
+}
+
+
+.card-exp-container{
+	display: inline-block;
+	
+}
+
+#card-exp{
+	width: 180px;
+}
+
+#card-exp-pass{
+	left: 130px;
+}
+
+#card-exp-fail{
+	left: 110px;
+}
+
+
+#form-result{
+	vertical-align: bottom;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-left: 20px;
+	display: inline;
+}
+
+
+#form-result-top{
+	font-size: 20px;
+	padding-top: 20px;
+}
+#billing{
+	padding-top: 25px;
+}
+
+#billcheckbox{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+#success{
+	text-align: center;
+}

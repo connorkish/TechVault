@@ -1,0 +1,135 @@
+<!doctype html>
+
+<!-- Project: Tech Vault -->
+<!-- Team Members: Josh Wagner, Connor Kish, Nick Trout -->
+<!-- Page: Create Account Page -->
+<!-- File: create-account.html -->
+<!-- Last Updated: 3/23/22 -->
+<!-- Last Updated By: Nick Trout -->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Account - Tech Vault</title>
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+		<!-- Custom CSS -->
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<link href="css/form.css" rel="stylesheet" type="text/css">
+		<link href="css/create-account.css" rel="stylesheet" type="text/css">
+		<!-- Icon JS -->
+		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		
+		<header>
+			<div id="header-top">
+				<div id="logo-container">
+					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
+				</div>
+				<div id="header-right">
+					<a href="" id="login">Login</a>
+					<a href="create-account.html" id="singup">Sign Up</a>
+					<div id="cart">
+						<a href="">Cart</a>
+						<i class="fa-solid fa-cart-flatbed"></i>
+						<div id="cart-num"></div>
+					</div>
+			  </div>
+			</div>
+	</header>
+		
+	<nav>
+			<ul>
+				<li><a href="product-CPUs.html">CPUs</a></li>
+				<li><a href="product-motherboards.html">Motherboards</a></li>
+				<li><a href="product-memory.html">Memory</a></li>
+				<li><a href="product-storage.html">Storage</a></li>
+				<li><a href="#">Power Supplies</a></li>
+				<li><a href="#">Cases</a></li>
+			</ul>
+		</nav>
+		
+		<div id="content">
+			<form class="form-group col-md-0 offset-lg-0 was-valid" id="account-form" onSubmit="return false">
+			  	<h1 id="from-title">Create Account</h1>
+				<div class="form-group offset-md-0 offset-sm-0 offset-xl-0">
+					<label for="fname">First Name</label>
+					<input type="text" class="form-control" id="fname" placeholder="John" onfocus="selectField(0)" onblur="unselectField(0)">
+					<i class="fa-solid fa-circle-check" id="fname-pass"></i>
+					<i class="fa-solid fa-circle-xmark"></i>
+					<small class="form-feedback" id="fname-feedback"></small>
+				</div>
+				<div class="form-group offset-md-0 offset-sm-0 offset-xl-0">
+					<label for="lname">Last Name</label>
+					<input type="text" class="form-control" id="lname" placeholder="Smith" onfocus="selectField(1)" onblur="unselectField(1)">
+					<i class="fa-solid fa-circle-check"></i>
+					<i class="fa-solid fa-circle-xmark"></i>
+					<small class="form-feedback" id="lname-feedback"></small>
+				</div>
+				<div class="form-group offset-md-0 offset-xl-0">
+			    	<label for="email">Email Address</label>
+			    	<input type="email" class="form-control" id="email" placeholder="example@something.com" onfocus="selectField(2)" onblur="unselectField(2)">
+					<i class="fa-solid fa-circle-check"></i>
+					<i class="fa-solid fa-circle-xmark"></i>
+					<small class="form-feedback" id="email-feedback"></small>
+			  	</div>
+			  	<div class="form-group offset-md-0">
+			    	<label for="password1">Password</label>
+			    	<p id="password-rules">Password must be between 8-15 characters and contain at least one uppercase, lowercase, number, and symbol.</p>
+			    	<input type="password" class="form-control" id="password1" placeholder="Enter Password" onfocus="selectField(3)" onblur="unselectField(3)">
+					<i class="fa-solid fa-circle-check"></i>
+					<i class="fa-solid fa-circle-xmark"></i>
+					<small class="form-feedback" id="password1-feedback"></small>
+		    	</div>
+				<div class="form-group offset-md-0">
+			    	<label for="password2">Confirm Password</label>
+			    	<input type="password" class="form-control" id="password2" placeholder="Reenter Password" onfocus="selectField(4)" onblur="unselectField(4)">
+					<i class="fa-solid fa-circle-check"></i>
+					<i class="fa-solid fa-circle-xmark"></i>
+					<small class="form-feedback" id="password2-feedback"></small>
+		    	</div>
+		    	<div class="offset-md-0 offset-lg-0" id="form-buttons">
+					<h2 id="form-result"></h2>
+					<button type="submit" class="btn btn-primary" id="submit-button" onClick="checkInputs()" >Create Account</button>
+            		<button type="reset" class="btn btn-primary" id="reset-button" onclick="resetFields()">Reset</button>
+          		</div>
+			</form>
+        </div>
+		
+		<footer>
+			<div id="footer-links">
+				<ul>
+					<li><a href="product-CPUs.html">CPUs</a></li>
+					<li><a href="product-motherboards.html">Motherboards</a></li>
+					<li><a href="product-memory.html">Memory</a></li>
+					<li><a href="product-storage.html">Storage</a></li>
+					<li><a href="#">Power Supplies</a></li>
+					<li><a href="#">Cases</a></li>
+				</ul>
+			</div>
+			<div id="social-media">
+				<ul>
+					<li><a href="#" title="LinkedIn"><img src="images/social-media/linked.png" alt="Tech Vault LinkedIn Page"></a></li>
+					<li><a href="#" title="Facebook"><img src="images/social-media/facebook.png" alt="Tech Vault Facebook Page"></a></li>
+					<li><a href="#" title="Instagram"><img src="images/social-media/insta.png" alt="Tech Vault Instagram Page"></a></li>
+					<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
+					<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
+					<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
+		  	  </ul>
+	  	  </div>
+		</footer>
+		
+		<!-- Validation JavaScript -->
+		<script src="js/create-account.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap-4.4.1.js"></script>
+		
+	</body>
+</html>

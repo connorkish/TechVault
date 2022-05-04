@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: product-management.css */
+/* Last Updated: 3/23/22 */
+/* Last Updated By: Josh Wagner */
+
+#action-select-container {
+	text-align: center;
+	margin-top: 5%;
+}
+
+#new-product, #edit-product, #delete-product{
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 22%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 30px;
+}
+
+.grid-item {
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.description-container{
+	padding-top: 10px;
+	padding-left: 15px;
+}
+.description-container textarea{
+	
+	height: 70px;
+}
+#search-results-area{
+	display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 30px;
+}
+
+.search-result {
+	display: inline-block;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px;
+  background: lightsteelblue;
+  box-shadow:  5px 10px 18px #888888;
+  max-width: 250px;
+}
+
+.result-name{
+	text-align: center;
+	padding-top: 10px;
+	font-weight: bold;
+}
+.product-image{
+	padding: 10px;
+	text-align: center;
+}
+
+.product-image img{
+	width: 80%;
+	height: 80%;
+	box-shadow:  5px 10px 18px #888888;
+}
+.product-details{
+	display: grid;
+  grid-template-columns: auto auto;
+  padding-top: 5px;
+  
+}
+
+#form-actions {
+	text-align: center;
+	margin-top: 5%;
+}
+
+#save, #update, #delete, #cancel, #reset {
+	display: inline;
+	margin-left: 1%;
+	margin-right: 1%;
+	width: 10%;
+}
+
+.btn{
+	background-color:#0275d8;
+	border: 0;
+}
+.btn:hover{
+	background-color:#0058a3;
+	border: 0;
+}
+.btn-primary{
+	background-color:#0275d8;
+	border: 0;
+}
+.btn-primary:hover{
+	background-color: #0058a3;
+	border: 0;
+}
+.active{
+	color: #0058a3;
+	background-color: powderblue;
+	font-weight: bold;
+	border-left: 20px solid;
+}
+
+.active:hover{
+	color: #0275d8;
+}

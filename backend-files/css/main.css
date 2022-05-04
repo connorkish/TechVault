@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: main.css */
+/* Last Updated: 2/27/22 */
+/* Last Updated By: Josh Wagner */
+
+
+/* ENTIRE BODY STYLING */
+
+body{
+	background-color: #B7B7B7 ;
+	padding: 0;
+	margin: 0;
+	min-width: 800px;
+	font-family: Helvetica, sans-serf;
+}
+
+
+/* HEADER BAR STYLING */
+
+header{
+	background-color: #4A0203;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+
+header a{
+	
+	color: white; 
+	text-decoration: none;
+}
+
+#logo-container{
+	display: inline;
+}
+
+#header-right{
+	float:right;
+	vertical-align: top;
+	text-align: left;
+	margin-top: 40px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 35px;
+}
+
+header a:hover{
+	color: lightblue; 
+	text-decoration: underline;
+}
+
+#account{
+	text-align: left;
+	margin-right: 25px;
+}
+
+#login, #signup{
+	text-align: left;
+	margin-right: 15px;
+}
+
+#header-spacer{
+	width: 10px;
+}
+
+#cart{
+	cursor: pointer;
+	text-align: right;
+	color: white;
+	display: inline;
+	padding: 0;
+	margin: 0;
+	padding-left: 15px;
+}
+
+#cart-icon{
+	height: 20px;
+	padding-right: 0px;
+	margin-right: 5px;
+}
+
+.fa-cart-flatbed{
+	font-size: 30px;
+	padding: 0;
+	color: white;
+}
+
+.fa-square{
+	position:relative;
+	right: 32px;
+	bottom: 8px;
+	color:steelblue;
+	padding:0;
+	margin:0;
+	font-size: 31px;
+}
+
+#cart-num{
+	font-weight: bold;
+	display: inline-block;
+	border-radius: 5px;
+	text-align: center;
+	right: 32px;
+	bottom: 15px;
+	padding: 5px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	background-color: steelblue;
+	color: white;
+	position: relative;
+	line-height: 1;
+	width: 30px;
+	visibility: hidden;
+}
+
+#search-container{
+	padding-top: 5px;
+}
+
+#search{
+	width: 180px;
+}
+
+
+/* NAVIGATION BAR STYLING */
+
+nav{
+	background-color: #7E0002;
+	overflow: auto;
+	text-align: center;
+	font-weight: bold;
+}
+
+nav ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li{
+	display: inline;
+}
+
+nav a{
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: white;
+}
+
+nav a:hover{
+	background-color: #4A0203;
+	color: lightblue;
+}
+
+
+/* CONTENT STYLING */
+
+#content{ 
+	display: flex;
+	flex-direction: column;
+	min-height: 80vh;
+
+	padding-bottom: 50px;
+	margin: auto;
+	width: 60%;
+	min-width: 800px;
+	max-width: 800px;
+}
+
+#content-container{
+	min-height: 600px;	
+}
+
+#temp{
+	margin-top:100px;
+	margin-bottom: auto;
+	text-align: center;
+}
+
+/* FOOTER STYLING */
+
+footer{
+	position: relative;
+	bottom: 0;
+	background-color: #4A0203;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+	display: block;
+	height: 100px;
+}
+
+footer ul{
+	margin: 0;
+	padding: 0;
+}
+
+footer li{
+	list-style: none;
+	display: inline;
+}
+
+#footer-links{
+	float: left;
+	margin-top: 20px;
+}
+
+#footer-links a{
+	color: white;
+	text-decoration: none;
+	padding-right: 10px;
+}
+
+#footer-links a:hover{
+	color: lightblue;
+	text-decoration: underline;
+}
+
+#social-media{
+	text-align: right;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

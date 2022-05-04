@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: create-account.css */
+/* Last Updated: 3/9/22 */
+/* Last Updated By: Josh Wagner */
+
+
+#content{
+	padding-top: 25px;
+}
+
+#form-image {
+	padding-right: 25px;
+}
+
+#form-image img{
+	height: 150px;
+}
+
+#account-form{
+	min-width: 450px;
+	max-width: 450px;
+}
+
+.fa-circle-check{
+	position:relative;
+	bottom:30px;
+	left:325px;
+	color:#2d9117;
+	padding:0;
+	margin:0;
+	visibility: hidden;
+}
+
+.fa-circle-xmark{
+	position:relative;
+	bottom:30px;
+	left:305px;
+	color:#ff0000;
+	padding:0;
+	margin:0;
+	visibility: hidden;
+}
+
+.form-feedback{
+	position: relative;
+	bottom: 25px;
+	font-size: 16px;
+}
+
+#password-rules{
+	font-size: 12px; 
+	color: lightgray;
+}
+
+.form-check{
+	text-align: center;
+}
+
+h2{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#form-buttons{
+	padding-top: 40px;
+	padding-bottom: 15px;
+}
+
+#reset-button{
+	width: 120px;
+}

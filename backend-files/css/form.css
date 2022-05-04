@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* Josh Wagner        	   */
+/* IST 256           	   */
+/* L6 JSON Excercise 	   */
+/* Form Style Sheet        */
+
+
+h1{
+	font-size: 40px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#form-image {
+	text-align: center;
+}
+
+#form-image img{
+	height: 150px;
+}
+
+#account-form{
+	margin: auto;
+	border-radius: 25px;
+	background-color: #4A0203;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	min-width: 500px;
+	max-width: 500px;
+}
+
+label{
+	font-size: 16px;
+}
+
+.form-group{
+	margin: auto;
+	width: 80%;
+	padding-bottom: 0px;
+}
+.selected-field{
+	border-width: 5px;
+	border-color: lightblue;
+}
+
+.unselected-field{
+	border-width: 0px;
+}
+
+.form-feedback{
+	display: block;
+	text-align: right;
+	color: red;
+}
+
+#form-buttons{
+	text-align: center;
+	margin: auto;
+	width: 100%;
+}
+
+#submit-button{
+	margin-right: 10px;
+	margin-left: 10px;
+}

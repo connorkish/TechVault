@@ -1,0 +1,150 @@
+<!doctype html>
+
+<!-- Project: Tech Vault -->
+<!-- Team Members: Josh Wagner, Connor Kish, Nick Trout -->
+<!-- Page: Home Page -->
+<!-- File: index.html -->
+<!-- Last Updated: 3/23/22 -->
+<!-- Last Updated By: Nick Trout -->
+
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tech Vault</title>
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+		<!-- Custom CSS -->
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<link href="css/homepage.css" rel="stylesheet" type="text/css">
+	<!-- Icon JS -->
+	<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		
+		<header>
+			<div id="header-top">
+				<div id="logo-container">
+					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
+				</div>
+				<div id="header-right">
+					<a href="" id="login">Login</a>
+					<a href="create-account.html" id="singup">Sign Up</a>
+					<div id="cart">
+						<a href="">Cart</a>
+						<i class="fa-solid fa-cart-flatbed"></i>
+						<div id="cart-num">10</div>
+					</div>
+			  </div>
+			</div>
+	</header>
+		
+	<nav>
+			<ul>
+				<li><a href="product-CPUs.html">CPUs</a></li>
+				<li><a href="product-motherboards.html">Motherboards</a></li>
+				<li><a href="product-memory.html">Memory</a></li>
+				<li><a href="product-storage.html">Storage</a></li>
+				<li><a href="product-powersupply.html">Power Supplies</a></li>
+				<li><a href="product-cases.html">Cases</a></li>
+			</ul>
+		</nav>
+		
+		<div id="content">
+		  <div id="mainpagecontainer">
+			    <div id="saveupto">
+				    <div class="card-body" id="cardsave50">
+						<p class="card-text" id="save50text" style="text-decoration-color: crimson; font-size: 25px;"><strong>Up to</strong></p>
+						<div class="column" style="float: left; width: auto;">
+						  <p class="card-text" style="color: black; font-size: 70px;"><b>50</b></p>
+						</div>
+						<div class="column" style="float: left; width:50%;">
+							<p class="card-text" style="color: crimson; font-size: 70px;"><b>%</b></p>
+						</div>
+						<p class="card-text" style="text-decoration-color: crimson; font-size: 25px;"><strong>off motherboards</strong></p>
+				      <div class="content button">
+						<a href="product-motherboards.html" class="btn btn-primary">Shop Now</a>
+					  </div>
+				  </div>
+			    </div>
+				<div id="todaypopularpicks">
+				  <div class="card-body">
+					  <p class="card-text" style="color: crimson; font-size: 20px;"><b>Today's Popular Picks</b></p>
+					  <div class="column" style="float: left; width: 50%;">
+						  <img src="images/products/cpu.png" style="width: 125px; height: 125px; display: block; margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto;" alt="CPU">
+						  <div class="imagetext" style="display: flex; justify-content: center; align-items: center; text-align: center; min-height: 50px; max-height: 50px;">
+						  	<p class="card-text"><a href="product-CPUs.html">Intel Core i5-10400</a></p>
+						  </div>
+					</div>
+						<div class="column" style="float: left; width: 50%;">
+							<img src="images/products/memory.png" style="width: 125px; height: 125px; display: block; margin-left: auto; margin-right: auto;" alt="DDR Memory Stick">
+						  <div class="imagetext" style="display: flex; justify-content: center; align-items: center; text-align: center; min-height: 50px; max-height: 50px;">
+						  	<p class="card-text"><a href="product-memory.html">Corsair Vengence RGB Pro 32GB DDR4 SDRAM</a></p>
+						  </div>
+						</div>
+				  </div>
+			  </div> <!--todayspopularpicks-->
+		  </div> <!--mainpagecontainer-->
+		  <div id="carousel">
+			<div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" style="background-color: grey">
+			  <ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+		    </ol>
+			  <div class="carousel-inner" role="listbox">
+			    <div class="carousel-item active"> <a href="product-cases.html"><img class="d-block mx-auto" src="images/carousel/case.jpg" alt="First slide"></a>
+			      <a href="product-cases.html"><div class="carousel-caption carouselcaption">
+					  <h5>Case</h5>
+			        <p>Corsair 4000D Mid-Tower ATX Case</p>
+					</div></a>
+		        </div>
+			    <div class="carousel-item"> <a href="product-storage.html"><img class="d-block mx-auto" src="images/carousel/storage.jpg" alt="Second slide"></a>
+			      <a href="product-storage.html"><div class="carousel-caption carouselcaption">
+			        <h5>Storage</h5>
+			        <p>Samsung 870 EVO Series 2.5" 500GB SATA III SSD</p>
+		          </div></a>
+		        </div>
+			    <div class="carousel-item"> <a href="product-powersupply.html"><img class="d-block mx-auto" src="images/carousel/power.jpg" alt="Third slide"></a>
+			      <a href="product-powersupply.html"><div class="carousel-caption carouselcaption">
+			        <h5>Power Supply</h5>
+			        <p>Rosewill 1050W ATX Full Modular Power Supply</p>
+		          </div></a>
+		        </div>
+		    </div>
+			  <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+			</div> <!--carousel-->
+        </div>
+		<footer>
+			<div id="footer-links">
+				<ul>
+					<li><a href="product-CPUs.html">CPUs</a></li>
+					<li><a href="product-motherboards.html">Motherboards</a></li>
+					<li><a href="product-memory.html">Memory</a></li>
+					<li><a href="product-storage.html">Storage</a></li>
+					<li><a href="product-powersupply.html">Power Supplies</a></li>
+					<li><a href="product-cases.html">Cases</a></li>
+				</ul>
+			</div>
+			<div id="social-media">
+				<ul>
+					<li><a href="#" title="LinkedIn"><img src="images/social-media/linked.png" alt="Tech Vault LinkedIn Page"></a></li>
+					<li><a href="#" title="Facebook"><img src="images/social-media/facebook.png" alt="Tech Vault Facebook Page"></a></li>
+					<li><a href="#" title="Instagram"><img src="images/social-media/insta.png" alt="Tech Vault Instagram Page"></a></li>
+					<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
+					<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
+					<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
+		  	  </ul>
+	  	  </div>
+		</footer>
+		
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap-4.4.1.js"></script>
+		
+	</body>
+</html>

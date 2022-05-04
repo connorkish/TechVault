@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Project: Tech Vault */
+/* Team Members: Josh Wagner, Connor Kish, Nick Trout */
+/* File: homepage.css */
+/* Last Updated: 4/22/22 */
+/* Last Updated By: Nick Trout */
+
+/* HOMEPAGE STYLING */
+
+#saveupto{
+	width: 275px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	float: left;
+	background-color: white;
+	padding-right: 25px;
+	max-height: 275px;
+	min-height: 275px;
+}
+
+#todaypopularpicks{
+	width: 500px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	float: right;
+	background-color: white;
+	max-height: 275px;
+	min-height: 275px;
+}
+
+#mainpagecontainer{
+	min-height: auto;
+	padding-top: 15px;
+}
+
+#carousel{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.carouselcaption{
+	background-color: black; opacity: 0.7;
+}
+
+#save50text{
+	margin: 0;
+}

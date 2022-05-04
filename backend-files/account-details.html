@@ -1,0 +1,86 @@
+<!doctype html>
+
+<!-- Project: Tech Vault -->
+<!-- Team Members: Josh Wagner, Connor Kish, Nick Trout -->
+<!-- Page: Account Details Page -->
+<!-- File: acount-details.html -->
+<!-- Last Updated: 3/23/22 -->
+<!-- Last Updated By: Nick Trout -->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<link href="css/account-details.css" rel="stylesheet" type="text/css">
+		<script src="https://kit.fontawesome.com/4b55b5ee7f.js" crossorigin="anonymous"></script>
+		<title>Account Details - Tech Vault</title>
+	</head>
+	<body onload="displayAccountDetails()">
+		<header>
+			<div id="header-top">
+				<div id="logo-container">
+					<a href="index.html"><img src="images/logo.png" id="logo" alt="Tech Vault Logo" ></a>
+				</div>
+				<div id="header-right">
+					<a href="account-details.html" id="account">Hello John</a>
+					
+					<div id="cart">
+						<span>Cart</span>
+						<i class="fa-solid fa-cart-flatbed"></i>
+						<div id="cart-num"></div>
+					</div>
+			  </div>
+			</div>
+		</header>		
+		<nav>
+			<ul>
+				<li><a href="product-CPUs.html">CPUs</a></li>
+				<li><a href="product-motherboards.html">Motherboards</a></li>
+				<li><a href="product-memory.html">Memory</a></li>
+				<li><a href="product-storage.html">Storage</a></li>
+				<li><a href="product-powersupply.html">Power Supplies</a></li>
+				<li><a href="product-cases.html">Cases</a></li>
+			</ul>
+		</nav>
+
+		<div id="content">
+			<h1 id="form-title">Account Details</h1>
+			<div id="details"></div>
+			<form class="form-group col-md-0 offset-lg-0 was-valid" id="account-form" onSubmit="return false">
+			</form>
+        </div>
+
+		<footer>
+			<div id="footer-links">
+				<ul>
+					<li><a href="product-CPUs.html">CPUs</a></li>
+					<li><a href="product-motherboards.html">Motherboards</a></li>
+					<li><a href="product-memory.html">Memory</a></li>
+					<li><a href="product-storage.html">Storage</a></li>
+					<li><a href="product-powersupply.html">Power Supplies</a></li>
+					<li><a href="product-cases.html">Cases</a></li>
+				</ul>
+			</div>
+			<div id="social-media">
+				<ul>
+					<li><a href="#" title="LinkedIn"><img src="images/social-media/linked.png" alt="Tech Vault LinkedIn Page"></a></li>
+					<li><a href="#" title="Facebook"><img src="images/social-media/facebook.png" alt="Tech Vault Facebook Page"></a></li>
+					<li><a href="#" title="Instagram"><img src="images/social-media/insta.png" alt="Tech Vault Instagram Page"></a></li>
+					<li><a href="#" title="Snapchat"><img src="images/social-media/snap.png" alt="Tech Vault Snapchat Page"></a></li>
+					<li><a href="#" title="YouTube"><img src="images/social-media/youtube.png" alt="Tech Vault YouTube Page"></a></li>
+					<li><a href="#" title="Twitter"><img src="images/social-media/twitter.png" alt="Tech Vault Twitter Page"></a></li>
+		  	    </ul>
+	  	    </div>
+		</footer>
+		<!-- Validation JavaScript -->
+		<script src="js/account-details.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap-4.4.1.js"></script>
+	</body>
+</html>
